@@ -1,0 +1,32 @@
+---
+import { stores, deepLink } from "../config";
+---
+
+<div
+  class="flex flex-col sm:flex-row items-center gap-4"
+  data-store-buttons
+  data-deep-link={deepLink}
+  data-ios-url={stores.ios.url}
+  data-android-url={stores.android.url}
+>
+  <a
+    href={stores.ios.url}
+    data-store="ios"
+    class="store-btn transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-lg"
+    aria-label={stores.ios.alt}
+  >
+    <img src={stores.ios.badge} alt={stores.ios.alt} class="h-14 w-auto" />
+  </a>
+  <a
+    href={stores.android.url}
+    data-store="android"
+    class="store-btn transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-lg"
+    aria-label={stores.android.alt}
+  >
+    <img src={stores.android.badge} alt={stores.android.alt} class="h-14 w-auto" />
+  </a>
+</div>
+
+<script>
+  import "../scripts/smart-link";
+</script>

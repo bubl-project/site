@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import { site } from "../config";
+---
+
+<Base title={`${site.name} — ${site.tagline}`}>
+  <main>
+    <Hero />
+    <footer class="border-t border-border/60 mt-12">
+      <div
+        class="mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-label"
+      >
+        <p>© {new Date().getFullYear()} {site.name}</p>
+        <nav class="flex items-center gap-6">
+          <a href="https://debubl.com/privacidad" class="hover:text-black"
+            >Privacidad</a
+          >
+          <a href="https://debubl.com/terminos" class="hover:text-black"
+            >Términos</a
+          >
+        </nav>
+      </div>
+    </footer>
+  </main>
+</Base>
