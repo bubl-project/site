@@ -1,0 +1,39 @@
+---
+import Base from "./Base.astro";
+import { site } from "../config";
+
+interface Props {
+  title: string;
+  description?: string;
+  updated: string;
+}
+
+const { title, description, updated } = Astro.props;
+---
+
+<Base title={`${title} — ${site.name}`} description={description}>
+  <main class="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-sm text-label hover:text-black mb-8"
+    >
+      ← Volver al inicio
+    </a>
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-black">
+      {title}
+    </h1>
+    <p class="mt-4 text-sm text-label">
+      Última actualización: {updated}
+    </p>
+    <div
+      class="prose prose-slate mt-10 max-w-none
+        [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-black
+        [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-black
+        [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-label [&_p]:mb-4
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:text-label [&_ul]:mb-4 [&_ul]:space-y-1
+        [&_a]:text-secondary [&_a]:underline hover:[&_a]:text-thirdly"
+    >
+      <slot />
+    </div>
+  </main>
+</Base>
