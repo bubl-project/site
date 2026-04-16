@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../config";
+---
+
+<Base
+  title={`Página no encontrada — ${site.name}`}
+  description="La página que buscas no existe."
+>
+  <main class="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-sm text-label hover:text-black mb-8"
+    >
+      ← Volver al inicio
+    </a>
+    <p class="text-sm font-semibold text-secondary uppercase tracking-wider">
+      Error 404
+    </p>
+    <h1 class="mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-black">
+      Página no encontrada
+    </h1>
+    <p class="mt-4 text-sm text-label">
+      La página que buscas no existe o fue movida.
+    </p>
+  </main>
+</Base>
