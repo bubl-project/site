@@ -24,28 +24,111 @@ import Legal from "../layouts/Legal.astro";
       servicios de lavado y cuidado de vehículos.
     </li>
     <li>
-      <strong>Usuario</strong>: toda persona que crea una cuenta o agenda un
-      servicio a través de la Plataforma.
+      <strong>Usuario</strong>: toda persona que crea una Cuenta o agenda un
+      Servicio a través de la Plataforma.
+    </li>
+    <li>
+      <strong>Cuenta</strong>: el registro individual y personal del Usuario
+      en la Plataforma, creado mediante alta en la app o el sitio web, que le
+      permite acceder al Servicio, agendar Reservas y gestionar sus datos.
+      Cada Usuario sólo podrá mantener una (1) Cuenta activa, conforme a la
+      sección&nbsp;3.
     </li>
     <li>
       <strong>Runner</strong>: persona designada por el Prestador para
       retirar, trasladar y/o entregar el vehículo del Usuario hacia y desde
-      el lugar donde se ejecuta el servicio. Los Runners no son empleados ni
+      el lugar donde se ejecuta el Servicio. Los Runners no son empleados ni
       dependientes de Bubl; su relación laboral o contractual es
       exclusivamente con el Prestador correspondiente.
     </li>
     <li>
       <strong>Prestador</strong>: persona o empresa independiente (por ejemplo,
-      un lavadero de autos) que ejecuta materialmente el servicio contratado.
+      un lavadero de autos) que ejecuta materialmente el Servicio contratado.
     </li>
     <li>
-      <strong>Reserva</strong>: la orden de servicio generada por el Usuario a
-      través de la Plataforma.
+      <strong>Servicio</strong>: conjunto integrado de prestaciones contratadas
+      por el Usuario mediante una Reserva, que comprende —según la modalidad
+      seleccionada— el retiro del vehículo, su traslado, el lavado o cuidado
+      ejecutado por el Prestador y la posterior entrega al Usuario.
+    </li>
+    <li>
+      <strong>Pickup</strong>: modalidad de Servicio en la cual el Runner
+      retira el vehículo en el lugar indicado por el Usuario, lo traslada al
+      Prestador y lo devuelve al Usuario una vez finalizado el Servicio.
+    </li>
+    <li>
+      <strong>Reserva</strong>: la orden de Servicio generada por el Usuario
+      a través de la Plataforma, en la modalidad, fecha, hora y lugar
+      seleccionados al confirmarla.
+    </li>
+    <li>
+      <strong>Zona de cobertura</strong>: ciudad, área geográfica o sector
+      que Bubl habilita para la prestación del Servicio, conforme se publica
+      en la Plataforma. La disponibilidad de modalidades, horarios y
+      Prestadores puede variar entre Zonas de cobertura.
+    </li>
+    <li>
+      <strong>Precio dinámico</strong>: el precio de una Reserva calculado en
+      función de variables tales como día y hora, distancia, condiciones
+      climáticas, nivel de demanda y otros factores operativos. El Precio
+      dinámico se informa al Usuario antes de confirmar la Reserva y queda
+      firme una vez confirmada, conforme a la sección&nbsp;8.
+    </li>
+    <li>
+      <strong>Promoción</strong>: todo descuento, beneficio, bonificación u
+      oferta especial que Bubl difunda a través de la Plataforma u otros
+      canales oficiales, sujeto a las condiciones particulares que se
+      publiquen al momento de su lanzamiento. Comprende, entre otras, las
+      siguientes categorías:
+      <ul>
+        <li>
+          <strong>Cupón</strong>: instrumento identificado por Bubl (físico o
+          digital) que otorga al Usuario que lo presente un beneficio
+          determinado sobre una o más Reservas.
+        </li>
+        <li>
+          <strong>Código de descuento</strong>: secuencia alfanumérica que,
+          ingresada por el Usuario al momento de confirmar una Reserva,
+          habilita la aplicación de un beneficio.
+        </li>
+        <li>
+          <strong>Programa de referidos</strong>: mecanismo mediante el cual
+          un Usuario invita a terceros a registrarse en la Plataforma y,
+          cumplidas las condiciones publicadas, obtiene un beneficio para sí
+          o para el referido.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Inasistencia (no-show)</strong>: supuesto en el cual el Usuario,
+      por causas que le son atribuibles, no provee acceso al vehículo en el
+      lugar y hora agendados, no se presenta, no entrega las llaves al Runner
+      asignado o de cualquier otro modo imposibilita la ejecución de la
+      Reserva. La Inasistencia podrá generar el cargo previsto en la
+      sección&nbsp;10.
     </li>
     <li>
       <strong>Contenido de Usuario</strong>: reseñas, comentarios, fotografías
       u otro material que el Usuario publique o envíe a través de la
       Plataforma.
+    </li>
+    <li>
+      <strong>Días hábiles</strong>: los días comprendidos entre lunes y
+      viernes, excluyendo sábados, domingos y los feriados nacionales
+      vigentes en la República del Paraguay.
+    </li>
+    <li>
+      <strong>Caso fortuito o fuerza mayor</strong>: todo hecho imprevisible,
+      inevitable y ajeno al control razonable de Bubl, del Prestador o del
+      Runner, que impida temporal o definitivamente la ejecución de la
+      Reserva o el normal funcionamiento de la Plataforma. Se consideran
+      supuestos de caso fortuito o fuerza mayor, a título enunciativo y no
+      taxativo: desastres naturales (terremotos, inundaciones, tormentas
+      severas); conflictos armados, disturbios o conmociones internas; actos
+      o decisiones de autoridad pública; huelgas o conflictos laborales
+      generalizados; cortes prolongados de energía eléctrica, agua o
+      telecomunicaciones; fallas masivas de proveedores tecnológicos; y
+      emergencias sanitarias o pandemias declaradas por autoridad competente.
     </li>
   </ul>
 
@@ -63,10 +146,22 @@ import Legal from "../layouts/Legal.astro";
     <a href="/contenido-usuario">Política de Contenido de Usuario</a>, que se
     consideran parte integrante de este acuerdo.
   </p>
+  <p>
+    <strong>Datos personales.</strong> Al crear una cuenta o utilizar la
+    Plataforma, el Usuario autoriza el tratamiento de sus datos personales
+    conforme a lo descrito en nuestra
+    <a href="/privacidad">Política de Privacidad</a> y a la normativa
+    vigente en materia de protección de datos personales. El Usuario podrá
+    ejercer
+    en todo momento sus derechos de acceso, rectificación, supresión,
+    oposición y portabilidad de sus datos personales a través de los canales
+    indicados en la Política de Privacidad o contactando a
+    <a href="mailto:info@mas595.com">info@mas595.com</a>.
+  </p>
 
   <h2>3. Cuenta de usuario</h2>
   <ul>
-    <li>Debes ser mayor de 18 años y contar con capacidad legal para contratar.</li>
+    <li>Debes ser mayor de 18 años.</li>
     <li>
       Solo puedes mantener una (1) cuenta activa. Si detectamos cuentas
       duplicadas de un mismo Usuario, podremos unificarlas o cancelar las
@@ -86,6 +181,17 @@ import Legal from "../layouts/Legal.astro";
       a internet adecuada para utilizar la Plataforma. Bubl no garantiza el
       funcionamiento de la app en todos los dispositivos ni se responsabiliza
       por las tarifas de datos que aplique tu operador de telefonía.
+    </li>
+    <li>
+      La Plataforma requiere acceso a los servicios de geolocalización de tu
+      dispositivo para funcionalidades esenciales del servicio, tales como
+      coordinar el retiro y la entrega del vehículo, asignar Prestadores y
+      Runners según proximidad, y permitir el seguimiento del estado de la
+      Reserva. Podrás gestionar los permisos de ubicación desde los ajustes
+      de tu dispositivo, aunque la desactivación podrá limitar o impedir el
+      uso de determinadas funcionalidades. El tratamiento de los datos de
+      ubicación se rige por nuestra
+      <a href="/privacidad">Política de Privacidad</a>.
     </li>
     <li>
       Podemos suspender o cancelar cuentas que incumplan estos Términos, presenten
@@ -110,28 +216,63 @@ import Legal from "../layouts/Legal.astro";
     desensamblar el software de la Plataforma, salvo en la medida en que la
     ley aplicable lo permita expresamente; (iii) lanzar scripts, bots o
     programas automatizados que sobrecarguen, interfieran o extraigan datos
-    de la Plataforma (scraping); (iv) enlazar, reflejar o enmarcar cualquier
-    parte de la Plataforma sin autorización escrita de Bubl; ni (v) utilizar
-    la Plataforma para desarrollar un producto o servicio competidor.
+    de la Plataforma (scraping); ni (iv) enlazar, reflejar o enmarcar
+    cualquier parte de la Plataforma sin autorización escrita de Bubl.
   </p>
   <p>
-    <strong>Tiendas de aplicaciones.</strong> La app se distribuye a través de
-    Apple App Store y Google Play. Reconoces que estos Términos se celebran
-    entre ti y Bubl —no con Apple Inc. ni Google LLC— y que dichas empresas
-    no tienen obligación alguna de prestar soporte ni atender reclamos
-    relativos a la app. En caso de conflicto entre estos Términos y las
-    condiciones de la tienda de aplicaciones correspondiente, prevalecerán
-    las condiciones de dicha tienda en lo que respecta a la distribución de
-    la app. Apple Inc. y Google LLC son terceros beneficiarios de esta
-    cláusula y podrán invocarla directamente.
+    <strong>Tiendas de aplicaciones.</strong> La app se distribuye a través
+    de Apple App Store y Google Play. Estos Términos constituyen un acuerdo
+    celebrado exclusivamente entre el Usuario y Bubl; Apple Inc., Google LLC
+    y sus respectivas subsidiarias no son parte de estos Términos. En caso
+    de conflicto entre estos Términos y las condiciones de la tienda de
+    aplicaciones correspondiente, prevalecerán estas últimas en lo que
+    respecta a la distribución de la app.
+  </p>
+  <p>
+    <strong>Responsabilidad de Bubl frente a la app.</strong> Bubl es
+    responsable exclusivo de la app, de su mantenimiento y soporte, y de la
+    atención de cualquier reclamo vinculado a ella. El Usuario reconoce que
+    Apple Inc. y Google LLC no asumen obligación alguna de prestar soporte,
+    mantenimiento, garantía ni servicio posventa respecto de la app.
+    Cualquier reclamo del Usuario o de terceros relativo a la app, a su
+    conformidad con la normativa aplicable, o a la calidad, seguridad o
+    desempeño del producto, será canalizado y respondido por Bubl y no por
+    Apple Inc. ni Google LLC.
+  </p>
+  <p>
+    <strong>Reclamos de propiedad intelectual.</strong> En caso de que un
+    tercero alegue que la app o el uso que el Usuario hace de la misma
+    infringe derechos de propiedad intelectual, la investigación, defensa,
+    transacción y pago del reclamo estarán a cargo exclusivo de Bubl, sin
+    responsabilidad alguna para Apple Inc. ni Google LLC.
+  </p>
+  <p>
+    <strong>Cumplimiento de normativa de exportación.</strong> El Usuario
+    declara que (i) no se encuentra en un país sometido a embargo por el
+    gobierno de los Estados Unidos de América, ni designado por dicho
+    gobierno como país que apoya el terrorismo; y (ii) no figura en ninguna
+    lista de personas o entidades prohibidas o restringidas del gobierno de
+    los Estados Unidos, de la Unión Europea ni de la República del
+    Paraguay.
+  </p>
+  <p>
+    <strong>Beneficiarios de la estipulación.</strong> Las disposiciones de
+    esta sección&nbsp;4 en favor de Apple Inc., Google LLC y sus
+    respectivas subsidiarias se establecen como estipulación a favor de
+    tercero, conforme al régimen de los contratos a favor de terceros
+    previsto en el Código Civil paraguayo. En virtud de ello, dichas
+    empresas podrán exigir directamente frente al Usuario el cumplimiento
+    de tales disposiciones, en su carácter de beneficiarias de la
+    estipulación, sin necesidad de ratificación adicional.
   </p>
 
   <h2>5. Reservas y ciclo del servicio</h2>
   <p>
-    La Plataforma ofrece distintas modalidades de servicio: retiro del vehículo
-    por parte del Runner (Pickup), entrega del vehículo por parte del Usuario
-    (Drop-off) y servicio en el domicilio del Usuario (On-site), según
-    disponibilidad en tu zona.
+    La Plataforma ofrece distintas modalidades de Servicio: retiro del
+    vehículo por parte del Runner (Pickup), entrega del vehículo por parte
+    del Usuario en el establecimiento del Prestador, y ejecución del
+    Servicio en el domicilio del Usuario, según disponibilidad en tu Zona
+    de cobertura.
   </p>
   <p>
     Cada Reserva avanza a través de estados que podrás seguir en tiempo real en
@@ -162,8 +303,10 @@ import Legal from "../layouts/Legal.astro";
     <li>
       Bubl podrá requerir que el Usuario confirme en la app la entrega y la
       recepción del vehículo. La falta de confirmación dentro del plazo
-      indicado en la app podrá considerarse como conformidad con el estado del
-      vehículo al momento de la entrega o devolución, según corresponda.
+      indicado en la app permitirá a Bubl dar por finalizada la Reserva a
+      efectos operativos de la Plataforma. Esta finalización no constituye
+      aceptación del estado del vehículo por parte del Usuario ni limita su
+      derecho a reportar daños conforme a lo previsto en la sección&nbsp;6.
     </li>
     <li>
       Eres responsable de retirar del vehículo objetos personales o de valor
@@ -294,15 +437,34 @@ import Legal from "../layouts/Legal.astro";
     queda firme y no será modificado. No se aplicarán recargos posteriores a
     la confirmación.
   </p>
+  <p>
+    <strong>Promociones y beneficios.</strong> Bubl podrá ofrecer
+    promociones, cupones, códigos de descuento, programas de referidos y
+    otros beneficios a través de la Plataforma. Cada promoción se regirá por
+    las condiciones particulares que Bubl publique al momento de su
+    lanzamiento, las cuales forman parte integrante de estos Términos.
+    Salvo que las condiciones particulares dispongan lo contrario, las
+    promociones son personales e intransferibles, tienen vigencia limitada y
+    podrán estar sujetas a restricciones de uso. Bubl se reserva el derecho
+    de modificar, suspender o dar por finalizadas las promociones en
+    cualquier momento, sin que ello genere derecho a indemnización, siempre
+    que se respeten los beneficios ya otorgados sobre Reservas confirmadas.
+    El uso fraudulento o abusivo de promociones —incluyendo la creación de
+    cuentas múltiples, la manipulación de códigos o cualquier conducta
+    destinada a obtener beneficios de manera indebida— podrá dar lugar a la
+    cancelación del beneficio, el cobro del precio regular y las medidas
+    previstas en la sección&nbsp;3 y la sección&nbsp;11 de estos Términos.
+  </p>
 
   <h2>9. Pagos</h2>
   <ul>
     <li>
-      Los métodos de pago habilitados se muestran en la Plataforma al momento
-      de confirmar la Reserva y pueden variar según la zona de cobertura. Al
-      confirmar una Reserva, autorizas el cargo correspondiente al método de
-      pago que selecciones, en el momento que la Plataforma indique según el
-      método elegido.
+      Todos los precios publicados en la Plataforma se expresan en guaraníes
+      paraguayos (PYG). Los métodos de pago habilitados se muestran en la
+      Plataforma al momento de confirmar la Reserva y pueden variar según la
+      zona de cobertura. Al confirmar una Reserva, autorizas el cargo
+      correspondiente al método de pago que selecciones, en el momento que la
+      Plataforma indique según el método elegido.
     </li>
     <li>
       Bubl no almacena los datos completos de tu tarjeta de crédito o débito;
@@ -347,6 +509,11 @@ import Legal from "../layouts/Legal.astro";
       los canales de soporte disponibles en la Plataforma y serán atendidas a
       la brevedad razonable.
     </li>
+    <li>
+      Las condiciones de cancelación descritas en esta sección no limitan los
+      derechos que la legislación vigente en materia de defensa del consumidor
+      reconoce al Usuario.
+    </li>
   </ul>
 
   <h2>11. Obligaciones y conducta del Usuario</h2>
@@ -378,7 +545,54 @@ import Legal from "../layouts/Legal.astro";
       interferir con el funcionamiento de la Plataforma (scraping, ingeniería
       inversa, denegación de servicio u otras prácticas análogas).
     </li>
+    <li>
+      No contactar al Runner o al Prestador fuera de los canales oficiales de
+      la Plataforma con el fin de concretar Servicios que no sean agendados a
+      través de ella.
+    </li>
+    <li>
+      No realizar pagos directos al Runner o al Prestador por fuera de la
+      Plataforma respecto de Servicios contratados o a contratar a través de
+      la misma.
+    </li>
+    <li>
+      No revender, ceder ni comercializar la Cuenta, las Reservas confirmadas,
+      Promociones, Cupones, Códigos de descuento u otros beneficios obtenidos
+      en la Plataforma.
+    </li>
+    <li>
+      No suplantar la identidad de otro Usuario, Runner, Prestador o tercero
+      al registrarse o al operar en la Plataforma.
+    </li>
   </ul>
+  <p>
+    <strong>Conducta fraudulenta.</strong> Sin perjuicio de lo anterior, se
+    considerarán conductas fraudulentas, entre otras: la creación de cuentas
+    múltiples para obtener beneficios indebidos; el uso de medios de pago
+    ajenos sin autorización de su titular; la presentación de solicitudes de
+    reembolso o disputas de pago basadas en información falsa; la provisión
+    deliberada de datos inexactos sobre el vehículo, su ubicación o su
+    titularidad; y la coordinación con Prestadores o Runners para obtener
+    ventajas indebidas en perjuicio de la Plataforma. Ante indicios
+    razonables de conducta fraudulenta, Bubl podrá —de forma inmediata y sin
+    previo aviso— suspender o cancelar la cuenta del Usuario, anular
+    beneficios o promociones pendientes y exigir el pago de los montos
+    adeudados, sin perjuicio de las acciones legales que correspondan.
+  </p>
+  <p>
+    <strong>Calificaciones y reseñas.</strong> La Plataforma permite al
+    Usuario calificar y reseñar a Prestadores y Runners tras la finalización
+    del servicio. Las calificaciones deben basarse en la experiencia real del
+    Usuario con el servicio evaluado y reflejar una opinión honesta. Están
+    prohibidas las reseñas que contengan información falsa, contenido
+    ofensivo, discriminatorio o que no guarden relación con el servicio
+    prestado. Bubl podrá moderar, ocultar o eliminar calificaciones y
+    reseñas que contravengan estas reglas o la
+    <a href="/contenido-usuario">Política de Contenido de Usuario</a>, sin
+    que ello genere obligación de notificación previa. Las calificaciones
+    podrán influir en la visibilidad y el posicionamiento de los Prestadores
+    dentro de la Plataforma.
+  </p>
 
   <h2>12. Indemnización</h2>
   <p>
@@ -405,7 +619,8 @@ import Legal from "../layouts/Legal.astro";
   <ul>
     <li>
       Los Prestadores son contratistas independientes de Bubl, y los Runners
-      actúan bajo la dependencia del Prestador correspondiente. Bubl no
+      mantienen su relación laboral o contractual exclusivamente con el
+      Prestador correspondiente, conforme a la sección&nbsp;1. Bubl no
       responde por los actos, omisiones o daños causados por Prestadores o
       Runners durante la ejecución del servicio. La responsabilidad civil
       derivada de la actividad recae en el Prestador correspondiente.
@@ -417,9 +632,9 @@ import Legal from "../layouts/Legal.astro";
     <li>
       En la máxima medida permitida por la ley, Bubl no será responsable por
       daños indirectos, lucro cesante, pérdida de oportunidades o pérdida de
-      datos. Nuestra responsabilidad total por cualquier reclamo relacionado
-      con la Plataforma se limita al monto efectivamente pagado por la Reserva
-      que origina el reclamo.
+      datos. Esta limitación no pretende restringir ni suprimir los derechos
+      que la legislación vigente en materia de defensa del consumidor reconoce
+      al Usuario y que no puedan ser excluidos por acuerdo de partes.
     </li>
     <li>
       No somos responsables por incumplimientos ocasionados por caso fortuito
@@ -475,13 +690,35 @@ import Legal from "../layouts/Legal.astro";
     ningún derecho sobre ellos salvo el uso personal y no comercial de la
     Plataforma conforme a estos Términos.
   </p>
+  <p>
+    <strong>Contenido de Usuario.</strong> El Usuario conserva la titularidad
+    sobre el Contenido de Usuario que publique o envíe a través de la
+    Plataforma. Al publicar o enviar dicho contenido, el Usuario otorga a
+    Bubl una licencia no exclusiva, gratuita, transferible, sublicenciable y
+    de alcance mundial para usar, alojar, almacenar, reproducir, mostrar y
+    distribuir ese contenido en la Plataforma y en los canales de
+    comunicación de Bubl, con el fin de operar, promover y mejorar el
+    servicio. Esta licencia se mantiene vigente mientras el contenido
+    permanezca en la Plataforma y se extingue cuando el Usuario lo elimine o
+    solicite su eliminación, salvo que haya sido compartido por otros
+    Usuarios o sea necesario conservarlo para el cumplimiento de obligaciones
+    legales. El Usuario declara y garantiza que cuenta con los derechos
+    necesarios para otorgar esta licencia y que el contenido no infringe
+    derechos de terceros. Bubl podrá moderar, editar o retirar Contenido de
+    Usuario que contravenga estos Términos o la
+    <a href="/contenido-usuario">Política de Contenido de Usuario</a>.
+  </p>
 
   <h2>16. Modificaciones</h2>
   <p>
     Podemos modificar estos Términos y la Plataforma en cualquier momento.
     Publicaremos la versión actualizada en esta página y, cuando los cambios
-    sean sustanciales, te avisaremos por la app o por correo. El uso continuado
-    del servicio tras la publicación implica aceptación de la versión vigente.
+    sean sustanciales, te avisaremos por la app o por correo con al menos
+    quince (15) días de antelación a su entrada en vigor. Si no estás de
+    acuerdo con las modificaciones, podrás dejar de usar la Plataforma y
+    solicitar la eliminación de tu cuenta antes de que entren en vigor. El
+    uso continuado del servicio tras la entrada en vigor de los cambios
+    implica aceptación de la versión vigente.
   </p>
 
   <h2>17. Terminación</h2>
@@ -491,27 +728,51 @@ import Legal from "../layouts/Legal.astro";
     acceso ante incumplimientos de estos Términos, sin perjuicio de las
     obligaciones pendientes (por ejemplo, pagos por servicios ya ejecutados).
   </p>
+  <p>
+    <strong>Datos tras la eliminación.</strong> Al eliminar tu cuenta, Bubl
+    procederá a suprimir tus datos personales conforme a lo establecido en la
+    <a href="/privacidad">Política de Privacidad</a> y en la normativa
+    aplicable. Bubl podrá conservar determinada información cuando sea
+    necesario para el cumplimiento de obligaciones legales, la resolución de
+    disputas pendientes o la defensa de sus derechos en procedimientos en
+    curso, por el plazo mínimo que dichas obligaciones requieran. Los datos
+    asociados a transacciones y comprobantes fiscales se conservarán conforme
+    a los plazos de la normativa tributaria vigente.
+  </p>
 
   <h2>18. Ley aplicable y jurisdicción</h2>
   <p>
     Estos Términos se rigen por las leyes de la República del Paraguay.
   </p>
   <p>
-    <strong>Reclamo interno previo.</strong> Antes de iniciar cualquier acción
-    judicial, el Usuario deberá presentar su reclamo a Bubl a través de los
-    canales de soporte disponibles en la Plataforma o por correo electrónico a
+    <strong>Reclamo interno previo.</strong> Antes de iniciar la mediación o
+    cualquier acción judicial, el Usuario deberá presentar su reclamo a Bubl
+    a través de los canales de soporte disponibles en la Plataforma o por
+    correo electrónico a
     <a href="mailto:info@mas595.com">info@mas595.com</a>. Bubl contará con un
     plazo de quince (15) días hábiles desde la recepción del reclamo para
-    ofrecer una respuesta o propuesta de solución. El agotamiento de este
-    procedimiento interno —ya sea por respuesta insatisfactoria o por
-    vencimiento del plazo sin respuesta— es condición previa necesaria para
-    someter la controversia a sede judicial.
+    ofrecer una respuesta o propuesta de solución.
   </p>
   <p>
-    Agotado el procedimiento anterior, cualquier controversia derivada de o
-    relacionada con estos Términos se someterá a los tribunales competentes de
-    la ciudad de Encarnación, Departamento de Itapúa, con renuncia expresa a
-    cualquier otro fuero que pudiera corresponder.
+    <strong>Mediación previa.</strong> Si, agotado el reclamo interno, las
+    partes no alcanzaran un acuerdo —ya sea por respuesta insatisfactoria o
+    por vencimiento del plazo sin respuesta—, someterán la controversia a
+    mediación administrada por el Centro de Arbitraje y Mediación Paraguay
+    (CAMP) de la Cámara Nacional de Comercio y Servicios de Paraguay,
+    conforme al reglamento vigente de dicho centro. El procedimiento de
+    mediación tendrá una duración máxima de treinta (30) días corridos
+    contados desde la primera audiencia; vencido dicho plazo sin acuerdo,
+    cualquiera de las partes podrá recurrir a la vía judicial. Esta
+    instancia de mediación no condiciona ni restringe el derecho del Usuario
+    a presentar reclamos o denuncias ante SEDECO u otras autoridades
+    administrativas competentes, conforme a la sección&nbsp;14.
+  </p>
+  <p>
+    Agotadas las instancias anteriores sin alcanzar un acuerdo, cualquier
+    controversia derivada de o relacionada con estos Términos se someterá a
+    los tribunales competentes de la ciudad de Encarnación, Departamento de
+    Itapúa, con renuncia expresa a cualquier otro fuero que pudiera
+    corresponder.
   </p>
 
   <h2>19. Disposiciones generales</h2>
