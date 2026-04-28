@@ -2,7 +2,7 @@ export const site = {
   name: "Bubl",
   domain: "app.debubl.com",
   url: "https://app.debubl.com",
-  tagline: "Agenda y manda a lavar tu auto desde tu celular.",
+  tagline: "Agendá y mandá a lavar tu auto desde tu celular.",
   description:
     "Descarga Bubl para iOS o Android y empieza en segundos.",
   locale: "es",
