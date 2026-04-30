@@ -3,8 +3,10 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.com.debubl.app",
-        "paths": ["*"]
+        "appID": "9QMX75V342.com.mas595.bubl",
+        "paths": [
+          "*"
+        ]
       }
     ]
   }
