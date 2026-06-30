@@ -3,8 +3,19 @@
     "apps": [],
     "details": [
       {
+        "appID": "9QMX75V342.com.mas595.bublrunner",
+        "paths": [
+          "/runner/purchase/*",
+          "/runner/service-requests",
+          "/runner/register-provider",
+          "/runner/onboarding/provider/*",
+          "/runner/auth/change-password"
+        ]
+      },
+      {
         "appID": "9QMX75V342.com.mas595.bubl",
         "paths": [
+          "NOT /runner/*",
           "*"
         ]
       }
