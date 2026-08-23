@@ -1,17 +1,22 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.mas595.bublrunner",
       "sha256_cert_fingerprints": [
-        "ee:7f:dd:61:56:ea:9b:4d:23:67:63:5c:ab:91:21:c6:db:94:b1:e3:39:f9:aa:fe:b1:68:32:70:d0:64:f2:96",
+        "AC:0B:6B:58:98:F9:EE:E7:D8:57:F7:1A:1D:7C:39:5D:D4:1E:B0:27:A0:26:0D:C6:47:0D:78:D2:CF:9E:5E:DB",
+        "EE:7F:DD:61:56:EA:9B:4D:23:67:63:5C:AB:91:21:C6:DB:94:B1:E3:39:F9:AA:FE:B1:68:32:70:D0:64:F2:96",
         "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
       ]
     }
   },
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.debubl.app",
