@@ -19,9 +19,9 @@
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.debubl.app",
+      "package_name": "com.mas595.bubl",
       "sha256_cert_fingerprints": [
-        "AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99:AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99"
+        "73:5E:02:E1:9B:73:2A:D4:89:88:2B:05:99:6C:CC:35:4F:A3:19:E2:10:F7:1F:7F:4E:98:C2:6F:E7:25:BF:EC"
       ]
     }
   }
