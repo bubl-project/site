@@ -1,0 +1,221 @@
+---
+import Legal from "../layouts/Legal.astro";
+import Faq from "../components/Faq.astro";
+---
+
+<Legal
+  title="Ayuda"
+  description="Preguntas frecuentes sobre Bubl: reservas, precios, pagos, cancelaciones y tu cuenta."
+>
+  <p>
+    Acá respondemos las dudas más comunes sobre Bubl. Si no encontrás lo que
+    buscás, escribinos a <a href="mailto:info@mas595.com">info@mas595.com</a> y
+    te ayudamos.
+  </p>
+
+  <h2>Sobre Bubl</h2>
+
+  <Faq question="¿Qué es Bubl?">
+    <p>
+      Bubl es una app que te conecta con lavaderos y prestadores independientes
+      para lavar y cuidar tu auto. Agendás desde el celular y el servicio lo
+      ejecuta el prestador que atiende tu reserva.
+    </p>
+  </Faq>
+
+  <Faq question="¿Cuánto cuesta usar la app?">
+    <p>
+      Descargar y usar la app es gratis. Solo pagás el servicio que agendás, al
+      precio que ves en la app antes de confirmar la reserva.
+    </p>
+  </Faq>
+
+  <Faq question="¿En qué zonas está disponible?">
+    <p>
+      Las zonas de cobertura se muestran en la app al momento de agendar. Vamos
+      sumando zonas nuevas de a poco: si la tuya todavía no aparece, escribinos
+      y la tenemos en cuenta.
+    </p>
+  </Faq>
+
+  <h2>Reservas y servicios</h2>
+
+  <Faq question="¿Cómo agendo un servicio?">
+    <p>
+      Desde la app: elegí el servicio que querés, la fecha y el horario, revisá
+      el precio y confirmá la reserva. Vas a recibir la confirmación en la app.
+    </p>
+  </Faq>
+
+  <Faq question="¿Qué modalidades de servicio hay?">
+    <ul>
+      <li>
+        <strong>Pickup</strong>: un Runner retira tu auto y te lo devuelve una
+        vez terminado el servicio.
+      </li>
+      <li>
+        <strong>En el lavadero</strong>: llevás vos el auto al establecimiento
+        del prestador.
+      </li>
+      <li>
+        <strong>A domicilio</strong>: el servicio se hace en el lugar donde
+        estás.
+      </li>
+    </ul>
+    <p>La disponibilidad de cada modalidad depende de tu zona de cobertura.</p>
+  </Faq>
+
+  <Faq question="¿Puedo seguir el estado de mi reserva?">
+    <p>
+      Sí. La reserva avanza por estados que ves en tiempo real en la app
+      (pendiente, agendada, en retiro, en ejecución, lista, en entrega,
+      completada). También te avisamos por notificaciones push.
+    </p>
+  </Faq>
+
+  <Faq question="¿A quién le entrego las llaves?">
+    <p>
+      Solo al Runner asignado a tu reserva. Antes de entregar el auto podés
+      verificar su identidad en la app. Si la persona que se presenta no
+      coincide con el Runner asignado, no entregues el vehículo y contactanos
+      por los canales de soporte.
+    </p>
+  </Faq>
+
+  <Faq question="¿Qué pasa si dejo algo dentro del auto?">
+    <p>
+      Te pedimos que retires tus objetos personales o de valor antes del
+      servicio: ni Bubl ni los Runners o prestadores responden por objetos
+      olvidados. Si igual olvidaste algo, escribinos lo antes posible a
+      <a href="mailto:info@mas595.com">info@mas595.com</a> y lo gestionamos con
+      el Runner o prestador correspondiente.
+    </p>
+  </Faq>
+
+  <Faq question="¿Qué pasa si no estoy en el lugar y hora agendados?">
+    <p>
+      Si el Runner o el prestador no pueden acceder al vehículo por causas
+      atribuibles a vos (ausencia, acceso bloqueado, llaves no disponibles), se
+      considera inasistencia y puede aplicarse un cargo por cancelación.
+    </p>
+  </Faq>
+
+  <h2>Precios y pagos</h2>
+
+  <Faq question="¿Cómo se calcula el precio?">
+    <p>
+      El precio se muestra en la app antes de confirmar e incluye los impuestos
+      aplicables. Puede variar según día y hora, distancia, clima y demanda.
+      Una vez que confirmás la reserva, el precio queda firme: no aplicamos
+      recargos posteriores.
+    </p>
+  </Faq>
+
+  <Faq question="¿Cómo puedo pagar?">
+    <p>
+      Los métodos de pago habilitados se muestran en la app al confirmar la
+      reserva y pueden variar según la zona. Todos los precios están en
+      guaraníes (PYG).
+    </p>
+  </Faq>
+
+  <Faq question="¿Guardan los datos de mi tarjeta?">
+    <p>
+      No. No almacenamos los datos completos de tu tarjeta: trabajamos con
+      tokenización a través de procesadores de pago externos.
+    </p>
+  </Faq>
+
+  <Faq question="¿Emiten factura?">
+    <p>
+      Sí, emitimos los comprobantes y facturas conforme a la normativa fiscal
+      vigente, a nombre de Mas595 EAS Unipersonal, RUC 80169030-7.
+    </p>
+  </Faq>
+
+  <Faq question="¿Puedo usar cupones o códigos de descuento?">
+    <p>
+      Sí, cuando haya promociones vigentes. Cada promoción tiene sus propias
+      condiciones, es personal e intransferible y tiene vigencia limitada.
+    </p>
+  </Faq>
+
+  <h2>Cancelaciones y reembolsos</h2>
+
+  <Faq question="¿Puedo cancelar una reserva?">
+    <p>
+      Sí, desde la app. La ventana de cancelación sin costo y los eventuales
+      cargos por cancelación tardía o inasistencia se te informan al confirmar
+      cada reserva, y pueden variar según el prestador, la modalidad y la zona.
+    </p>
+  </Faq>
+
+  <Faq question="¿Cuándo me devuelven la plata?">
+    <p>
+      Si el servicio no se ejecuta por causas atribuibles a Bubl, al Runner o al
+      prestador, gestionamos el reembolso por el mismo medio de pago que usaste.
+      La acreditación depende de los plazos del procesador de pago.
+    </p>
+  </Faq>
+
+  <h2>Tu auto</h2>
+
+  <Faq question="¿Cómo se registra el estado de mi vehículo?">
+    <p>
+      Con un registro fotográfico obligatorio: el Runner o el prestador toman
+      fotos del exterior y del interior antes de retirar el auto o iniciar el
+      servicio, y otra vez al terminarlo, antes de devolvértelo. Sin esas fotos
+      la reserva no puede avanzar de estado.
+    </p>
+  </Faq>
+
+  <Faq question="¿Qué hago si mi auto vuelve con un daño?">
+    <p>
+      Reportalo por los canales de soporte de la app lo antes posible. El
+      registro fotográfico de antes y después sirve como respaldo del reclamo.
+      Podés ver el detalle del procedimiento en la sección 6 de los
+      <a href="/terminos">Términos y Condiciones</a>.
+    </p>
+  </Faq>
+
+  <Faq question="¿El vehículo está asegurado por Bubl?">
+    <p>
+      No. Bubl es una plataforma de intermediación y no contrata seguros sobre
+      tu vehículo. La custodia y la responsabilidad por eventuales daños durante
+      el retiro, traslado, ejecución y entrega recaen en el prestador y/o en el
+      Runner. Te recomendamos verificar con tu aseguradora que tu póliza
+      contemple la conducción por terceros autorizados.
+    </p>
+  </Faq>
+
+  <h2>Tu cuenta</h2>
+
+  <Faq question="¿Puedo tener más de una cuenta?">
+    <p>
+      No. Cada usuario puede mantener una sola cuenta activa. Las cuentas son
+      personales e intransferibles.
+    </p>
+  </Faq>
+
+  <Faq question="¿Cómo elimino mi cuenta?">
+    <p>
+      Podés hacerlo desde la app en pocos pasos. Te dejamos el detalle en
+      <a href="/eliminar-cuenta">Eliminar tu cuenta</a>.
+    </p>
+  </Faq>
+
+  <Faq question="¿Qué hacen con mis datos?">
+    <p>
+      Está todo explicado en nuestra
+      <a href="/privacidad">Política de Privacidad</a>.
+    </p>
+  </Faq>
+
+  <h2>¿Seguís con dudas?</h2>
+  <p>
+    Escribinos a <a href="mailto:info@mas595.com">info@mas595.com</a> o usá la
+    sección <strong>Ayuda y Soporte</strong> dentro de la app. También podés
+    revisar los <a href="/terminos">Términos y Condiciones</a> y la
+    <a href="/privacidad">Política de Privacidad</a>.
+  </p>
+</Legal>
