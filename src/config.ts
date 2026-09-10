@@ -10,14 +10,12 @@ export const site = {
 
 export const stores = {
   ios: {
-    // TODO: reemplazar con la URL real de App Store
-    url: "https://apps.apple.com/app/idXXXXXXXXX",
+    url: "https://apps.apple.com/us/app/bubl/id6807401310",
     badge: "/badges/app-store.svg",
     alt: "Descargar en App Store",
   },
   android: {
-    // TODO: reemplazar con la URL real de Play Store
-    url: "https://play.google.com/store/apps/details?id=com.debubl.app",
+    url: "https://play.google.com/store/apps/details?id=com.mas595.bubl",
     badge: "/badges/google-play.png",
     alt: "Disponible en Google Play",
   },
