@@ -10,6 +10,9 @@ interface Props {
 const { title = site.name, description = site.description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).toString();
 const ogImage = new URL("/og-image.png", site.url).toString();
+// Safari muestra "Abrir" si la app está instalada o "Ver" si no. Las páginas
+// de /runner son de la app de proveedores, así que ahí no corresponde.
+const showAppBanner = !Astro.url.pathname.startsWith("/runner");
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -30,6 +33,11 @@ const jsonLd = {
     <meta name="theme-color" content="#29617b" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
+    {
+      showAppBanner && (
+        <meta name="apple-itunes-app" content={`app-id=${stores.ios.appId}`} />
+      )
+    }
 
     <title>{title}</title>
     <meta name="description" content={description} />
