@@ -1,13 +1,20 @@
 ---
 import "../styles/global.css";
-import { site, stores } from "../config";
+import { site, apps, type AppKey } from "../config";
 
 interface Props {
   title?: string;
   description?: string;
+  /** App que promociona la página: define el Smart App Banner y el JSON-LD. */
+  app?: AppKey;
 }
 
-const { title = site.name, description = site.description } = Astro.props;
+const {
+  title = site.name,
+  description = site.description,
+  app = "customer",
+} = Astro.props;
+const promoted = apps[app];
 const canonical = new URL(Astro.url.pathname, site.url).toString();
 const ogImage = new URL("/og-image.png", site.url).toString();
 // Safari muestra "Abrir" si la app está instalada o "Ver" si no. Las páginas
@@ -17,11 +24,11 @@ const showAppBanner = !Astro.url.pathname.startsWith("/runner");
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
-  name: site.name,
+  name: promoted.name,
   operatingSystem: "iOS, Android",
   applicationCategory: "MobileApplication",
-  url: site.url,
-  installUrl: [stores.ios.url, stores.android.url],
+  url: app === "customer" ? site.url : canonical,
+  installUrl: [promoted.ios.url, promoted.android.url],
 };
 ---
 
@@ -35,7 +42,7 @@ const jsonLd = {
     <link rel="canonical" href={canonical} />
     {
       showAppBanner && (
-        <meta name="apple-itunes-app" content={`app-id=${stores.ios.appId}`} />
+        <meta name="apple-itunes-app" content={`app-id=${promoted.ios.appId}`} />
       )
     }
 
