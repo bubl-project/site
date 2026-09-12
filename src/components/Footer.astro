@@ -1,0 +1,26 @@
+---
+import { site } from "../config";
+
+interface Props {
+  links: { href: string; label: string }[];
+}
+
+const { links } = Astro.props;
+---
+
+<footer class="border-t border-border/60 mt-12">
+  <div
+    class="mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-label"
+  >
+    <p>© {new Date().getFullYear()} {site.name}</p>
+    <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+      {
+        links.map(({ href, label }) => (
+          <a href={href} class="hover:text-black">
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</footer>

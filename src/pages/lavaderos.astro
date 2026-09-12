@@ -1,0 +1,76 @@
+---
+import Base from "../layouts/Base.astro";
+import StoreButtons from "../components/StoreButtons.astro";
+import Footer from "../components/Footer.astro";
+import { apps } from "../config";
+
+const app = apps.runner;
+const tagline = "Gestioná tu lavadero desde tu celular.";
+const description =
+  "Descargá Bubl para lavaderos en iOS o Android y recibí pedidos, organizá tu agenda y administrá tu equipo desde un solo lugar.";
+---
+
+<Base app="runner" title={`${app.name} — ${tagline}`} description={description}>
+  <main>
+    <section class="relative overflow-hidden">
+      <div
+        class="absolute inset-0 -z-10 bg-gradient-to-b from-background via-white to-white"
+      >
+      </div>
+
+      <div class="mx-auto max-w-6xl px-6 py-16 sm:py-24 lg:py-32">
+        <div class="mx-auto max-w-2xl text-center">
+          <div
+            class="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-secondary mb-6"
+          >
+            <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+            App para lavaderos y prestadores
+          </div>
+
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-black"
+          >
+            <span
+              class="inline-flex items-center justify-center bg-thirdly overflow-hidden shadow-lg ring-1 ring-black/5 mx-auto h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
+              style="border-radius: 22.37%"
+            >
+              <img
+                src="/brand/icon-runner.png"
+                alt={app.name}
+                class="h-full w-full object-contain"
+                width="112"
+                height="112"
+              />
+            </span>
+            <span class="block text-secondary mt-4 text-3xl sm:text-4xl lg:text-5xl">
+              {tagline}
+            </span>
+          </h1>
+
+          <p class="mt-6 text-lg text-label">
+            {description}
+          </p>
+
+          <div class="mt-10 flex justify-center">
+            <StoreButtons app="runner" />
+          </div>
+
+          <p class="mt-8 text-sm text-label">
+            ¿Querés lavar tu auto?
+            <a href="/" class="text-secondary underline hover:text-thirdly">
+              Descargá la app para clientes
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Footer
+      links={[
+        { href: "/runner/privacidad", label: "Privacidad" },
+        { href: "/runner/terminos", label: "Términos" },
+        { href: "/runner/eliminar-cuenta", label: "Eliminar cuenta" },
+      ]}
+    />
+  </main>
+</Base>

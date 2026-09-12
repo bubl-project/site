@@ -29,11 +29,11 @@ Before these work in production you must fill in the placeholders:
 - `apple-app-site-association` → replace `TEAMID.com.debubl.app` with your real `<AppleTeamID>.<iOSBundleID>`
 - `assetlinks.json` → replace `com.debubl.app` and the SHA256 fingerprint with your Android package name and release signing cert fingerprint
 
-Also update `src/config.ts`:
+Also update `src/config.ts`, which has one entry per app under `apps` (`customer` → `/`, `runner` → `/lavaderos`):
 
-- `stores.ios.url` — real App Store listing URL
-- `stores.android.url` — real Play Store listing URL
-- `deepLink` — the Universal Link URL the app claims (must match an `applinks.details.paths` entry)
+- `ios.url` / `ios.appId` — App Store listing URL and id (the id feeds the Smart App Banner)
+- `android.url` / `android.packageName` — Play Store listing URL and package
+- `deepLink` — the App Link URL the app claims (must match an `applinks.details.paths` entry and the Android intent-filter)
 
 The Bubl app itself must declare:
 
