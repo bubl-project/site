@@ -40,6 +40,10 @@ The Bubl app itself must declare:
 - iOS: Associated Domain `applinks:app.debubl.com`
 - Android: intent-filter with `android:host="app.debubl.com"` and `android:autoVerify="true"`
 
+### TV pairing link (`/runner/panel/vincular`)
+
+The QR on a shop TV encodes `https://app.debubl.com/runner/panel/vincular?c=<6-digit code>`. The runner app claims it through `/runner/panel/*` in `apple-app-site-association` (iOS) and `android:pathPrefix="/runner/panel"` in its own AndroidManifest (Android). Deploy the AASA change before the runner build that handles the link: Apple's CDN caches the file and can take a while to pick up a new path. When it opens in a browser instead, `src/pages/runner/panel/vincular.astro` shows the runner's store badges and the code, read client-side from `?c=` and never sent anywhere. The page is `noindex, nofollow` and `no-referrer`. The site loads no analytics today; any added later must skip this page or drop the query, since the code pairs the TV with whichever lavadero enters it.
+
 ## Verify association files after deploy
 
 ```bash

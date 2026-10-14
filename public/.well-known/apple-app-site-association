@@ -9,7 +9,8 @@
           "/runner/service-requests",
           "/runner/register-provider",
           "/runner/onboarding/provider/*",
-          "/runner/auth/change-password"
+          "/runner/auth/change-password",
+          "/runner/panel/*"
         ]
       },
       {

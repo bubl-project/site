@@ -1,0 +1,72 @@
+---
+import Legal from "../../../layouts/Legal.astro";
+import StoreButtons from "../../../components/StoreButtons.astro";
+import { site } from "../../../config";
+
+// El link del QR de la TV, sin el código: en Android, el botón de Play abre la
+// app en Mi cuenta › Dispositivos si la versión instalada ya tiene la ruta; si
+// no, cae a la tienda.
+const pairingLink = new URL("/runner/panel/vincular", site.url).toString();
+---
+
+<Legal
+  title="Vincular la pantalla del local"
+  description="Cómo vincular la pantalla del local con la app Bubl Lavadero."
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+    {/* La URL trae el código de vinculación (?c=): que no viaje como Referer. */}
+    <meta name="referrer" content="no-referrer" />
+  </Fragment>
+
+  <p>
+    Para vincular esta pantalla, abrí este link en el celular del encargado, con
+    <strong>Bubl Lavadero</strong> instalada.
+  </p>
+
+  <div class="my-8">
+    <StoreButtons app="runner" deepLink={pairingLink} />
+  </div>
+
+  <p>
+    ¿Ya la tenés? Entrá a
+    <strong>Mi cuenta › Dispositivos › Vincular pantalla</strong>
+    <span data-pairing="without-code">
+      e ingresá el código de 6 números que muestra el televisor.
+    </span>
+    <span data-pairing="with-code" hidden>e ingresá:</span>
+  </p>
+
+  <div data-pairing="with-code" hidden>
+    <p>
+      <strong
+        data-pairing-code
+        class="inline-block select-all rounded-xl bg-primary px-5 py-2 text-4xl font-bold tabular-nums text-black"
+      ></strong>
+    </p>
+    <p>Vinculá solo si estás frente al televisor de tu local.</p>
+  </div>
+
+  {/* Lee el código del link del QR (?c=) y lo muestra solo si son 6 dígitos,
+      con textContent; nunca sale de la página. Va inline, después de su
+      marcado, para que aparezca sin parpadeo. Los spans van pegados: se lee
+      «482 913» y se copia «482913», lo que acepta el campo de la app. */}
+  <script is:inline>
+    (() => {
+      const code = new URLSearchParams(location.search).get("c");
+      const codeEl = document.querySelector("[data-pairing-code]");
+      if (!code || !/^[0-9]{6}$/.test(code) || !codeEl) return;
+
+      const start = document.createElement("span");
+      const end = document.createElement("span");
+      start.textContent = code.slice(0, 3);
+      end.textContent = code.slice(3);
+      end.className = "ml-[0.4em]";
+      codeEl.append(start, end);
+
+      document.querySelectorAll("[data-pairing]").forEach((el) => {
+        el.hidden = el.dataset.pairing === "without-code";
+      });
+    })();
+  </script>
+</Legal>

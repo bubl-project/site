@@ -3,10 +3,13 @@ import { apps, type AppKey } from "../config";
 
 interface Props {
   app?: AppKey;
+  /** App Link que abre el botón de Play si la app está instalada; por defecto, el de `app`. */
+  deepLink?: string;
 }
 
 const { app = "customer" } = Astro.props;
-const { ios, android, deepLink } = apps[app];
+const { ios, android } = apps[app];
+const deepLink = Astro.props.deepLink ?? apps[app].deepLink;
 ---
 
 <div

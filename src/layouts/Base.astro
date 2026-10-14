@@ -37,6 +37,9 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {/* Metas propias de la página (robots, referrer): van antes de cualquier
+        recurso para que el referrer de la página ya se aplique a todos. */}
+    <slot name="head" />
     <meta name="theme-color" content="#29617b" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
