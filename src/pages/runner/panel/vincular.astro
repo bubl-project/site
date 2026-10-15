@@ -24,10 +24,6 @@ const pairingLink = new URL("/runner/panel/vincular", site.url).toString();
     <strong>Bubl Lavadero</strong> instalada.
   </p>
 
-  <div class="my-8">
-    <StoreButtons app="runner" deepLink={pairingLink} />
-  </div>
-
   <p>
     ¿Ya la tenés? Entrá a
     <strong>Mi cuenta › Dispositivos › Pantallas del local › Vincular pantalla</strong>
@@ -37,14 +33,14 @@ const pairingLink = new URL("/runner/panel/vincular", site.url).toString();
     <span data-pairing="with-code" hidden>e ingresá:</span>
   </p>
 
-  <div data-pairing="with-code" hidden>
+  <div data-pairing="with-code" hidden class="my-8 text-center">
     <p>
       <strong
         data-pairing-code
         class="inline-block select-all rounded-xl bg-primary px-5 py-2 text-4xl font-bold tabular-nums text-black"
       ></strong>
     </p>
-    <p>Vinculá solo si estás frente al televisor de tu local.</p>
+    <p class="text-balance">Vinculá solo si estás frente al televisor de tu local.</p>
   </div>
 
   {/* Lee el código del link del QR (?c=) y lo muestra solo si son 6 dígitos,
@@ -69,4 +65,9 @@ const pairingLink = new URL("/runner/panel/vincular", site.url).toString();
       });
     })();
   </script>
+
+  <div class="mt-12 border-t border-border/60 pt-8 text-center">
+    <p>¿No tenés la app? Descargala:</p>
+    <StoreButtons app="runner" deepLink={pairingLink} sideBySide />
+  </div>
 </Legal>
