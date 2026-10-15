@@ -4,8 +4,8 @@ import StoreButtons from "../../../components/StoreButtons.astro";
 import { site } from "../../../config";
 
 // El link del QR de la TV, sin el código: en Android, el botón de Play abre la
-// app en Mi cuenta › Dispositivos si la versión instalada ya tiene la ruta; si
-// no, cae a la tienda.
+// app en Mi cuenta › Dispositivos › Pantallas del local si la versión
+// instalada ya tiene la ruta; si no, cae a la tienda.
 const pairingLink = new URL("/runner/panel/vincular", site.url).toString();
 ---
 
@@ -30,7 +30,7 @@ const pairingLink = new URL("/runner/panel/vincular", site.url).toString();
 
   <p>
     ¿Ya la tenés? Entrá a
-    <strong>Mi cuenta › Dispositivos › Vincular pantalla</strong>
+    <strong>Mi cuenta › Dispositivos › Pantallas del local › Vincular pantalla</strong>
     <span data-pairing="without-code">
       e ingresá el código de 6 números que muestra el televisor.
     </span>
