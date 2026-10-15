@@ -5,15 +5,29 @@ interface Props {
   app?: AppKey;
   /** App Link que abre el botón de Play si la app está instalada; por defecto, el de `app`. */
   deepLink?: string;
+  /** Lado a lado y centradas también en el celular; por defecto se apilan debajo de `sm`. */
+  sideBySide?: boolean;
 }
 
-const { app = "customer" } = Astro.props;
+const { app = "customer", sideBySide = false } = Astro.props;
 const { ios, android } = apps[app];
 const deepLink = Astro.props.deepLink ?? apps[app].deepLink;
+
+// Lado a lado, las dos insignias miden juntas ≈ 6,4 veces su alto (App Store
+// 3:1, Google Play 3,4:1). El alto sigue al ancho de la pantalla para que
+// entren en una fila, descontando el margen de Legal (3rem) y el espacio entre
+// ellas (0,75rem): de 40 px (el mínimo de Apple, y lo que entra a 320 px) a los
+// 56 px de siempre. En una pantalla más angosta, la segunda baja de fila.
+const layout = sideBySide
+  ? "flex flex-row flex-wrap justify-center items-center gap-3"
+  : "flex flex-col sm:flex-row items-center gap-4";
+const badgeHeight = sideBySide
+  ? "h-[clamp(2.5rem,calc((100vw_-_3.75rem)_/_6.4),3.5rem)]"
+  : "h-14";
 ---
 
 <div
-  class="flex flex-col sm:flex-row items-center gap-4"
+  class={layout}
   data-store-buttons
   data-deep-link={deepLink}
   data-android-package={android.packageName}
@@ -24,7 +38,7 @@ const deepLink = Astro.props.deepLink ?? apps[app].deepLink;
     class="store-btn transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-lg"
     aria-label={ios.alt}
   >
-    <img src={ios.badge} alt={ios.alt} class="h-14 w-auto" />
+    <img src={ios.badge} alt={ios.alt} class:list={[badgeHeight, "w-auto"]} />
   </a>
   <a
     href={android.url}
@@ -32,7 +46,7 @@ const deepLink = Astro.props.deepLink ?? apps[app].deepLink;
     class="store-btn transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-lg"
     aria-label={android.alt}
   >
-    <img src={android.badge} alt={android.alt} class="h-14 w-auto" />
+    <img src={android.badge} alt={android.alt} class:list={[badgeHeight, "w-auto"]} />
   </a>
 </div>
 
