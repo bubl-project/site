@@ -40,7 +40,7 @@ const jsonLd = {
     {/* Metas propias de la página (robots, referrer): van antes de cualquier
         recurso para que el referrer de la página ya se aplique a todos. */}
     <slot name="head" />
-    <meta name="theme-color" content="#29617b" />
+    <meta name="theme-color" content="#150c62" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
     {
@@ -63,9 +63,6 @@ const jsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>

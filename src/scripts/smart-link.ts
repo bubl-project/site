@@ -18,34 +18,32 @@ function androidIntentUrl(deepLink: string, pkg: string, fallback: string) {
 }
 
 function init() {
-  const root = document.querySelector<HTMLElement>("[data-store-buttons]");
-  if (!root) return;
-
   const platform = detectPlatform();
+  document.querySelectorAll<HTMLElement>("[data-store-buttons]").forEach((root) => {
+    const matching = root.querySelector<HTMLAnchorElement>(
+      `[data-store="${platform}"]`,
+    );
+    if (matching) {
+      matching.classList.add("ring-2", "ring-secondary", "ring-offset-2");
+    }
 
-  const matching = root.querySelector<HTMLAnchorElement>(
-    `[data-store="${platform}"]`,
-  );
-  if (matching) {
-    matching.classList.add("ring-2", "ring-secondary", "ring-offset-2");
-  }
+    // iOS: Universal Links never fire from a page on the same domain and JS
+    // redirects don't trigger them, so the badge links straight to the App
+    // Store (which shows "Abrir" when installed). The Smart App Banner in
+    // Base.astro covers opening the app from Safari.
+    //
+    // Android (Chromium browsers): rewrite the Play badge to an intent:// URL
+    // that opens the app when installed and falls back to the store.
+    const { deepLink, androidPackage } = root.dataset;
+    if (platform !== "android" || !deepLink || !androidPackage) return;
+    if (!/Chrome\//.test(navigator.userAgent)) return;
 
-  // iOS: Universal Links never fire from a page on the same domain and JS
-  // redirects don't trigger them, so the badge links straight to the App
-  // Store (which shows "Abrir" when installed). The Smart App Banner in
-  // Base.astro covers opening the app from Safari.
-  //
-  // Android (Chromium browsers): rewrite the Play badge to an intent:// URL
-  // that opens the app when installed and falls back to the store.
-  const { deepLink, androidPackage } = root.dataset;
-  if (platform !== "android" || !deepLink || !androidPackage) return;
-  if (!/Chrome\//.test(navigator.userAgent)) return;
-
-  root
-    .querySelectorAll<HTMLAnchorElement>('a[data-store="android"]')
-    .forEach((a) => {
-      a.href = androidIntentUrl(deepLink, androidPackage, a.href);
-    });
+    root
+      .querySelectorAll<HTMLAnchorElement>('a[data-store="android"]')
+      .forEach((a) => {
+        a.href = androidIntentUrl(deepLink, androidPackage, a.href);
+      });
+  });
 }
 
 if (document.readyState === "loading") {

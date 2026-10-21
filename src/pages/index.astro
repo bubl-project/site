@@ -2,20 +2,37 @@
 import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import ServiceModes from "../components/ServiceModes.astro";
+import Download from "../components/Download.astro";
+import Faq from "../components/Faq.astro";
+import WaterDrops from "../components/WaterDrops.astro";
 import { site } from "../config";
 ---
-
 <Base title={`${site.name} — ${site.tagline}`}>
-  <main>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <WaterDrops />
+  <Header />
+  <main id="contenido" class="marketing-main">
     <Hero />
-    <Footer
-      links={[
-        { href: "/lavaderos", label: "Lavaderos" },
-        { href: "/ayuda", label: "Ayuda" },
-        { href: "/privacidad", label: "Privacidad" },
-        { href: "/terminos", label: "Términos" },
-        { href: "/eliminar-cuenta", label: "Eliminar cuenta" },
-      ]}
-    />
+    <HowItWorks />
+    <ServiceModes />
+    <Download />
+    <section class="home-faq shell section-space" aria-labelledby="faq-title">
+      <div><p class="eyebrow">TODO CLARO</p><h2 id="faq-title">¿Alguna duda?</h2><a class="text-link" href="/ayuda">Visitá nuestro centro de ayuda <span aria-hidden="true">↗</span></a></div>
+      <div class="faq-list">
+        <Faq question="¿Cuánto cuesta usar Bubl?"><p>Descargar y usar la app es gratis. Solo pagás el servicio que agendás, al precio que ves antes de confirmar tu reserva.</p></Faq>
+        <Faq question="¿En qué zonas está disponible?"><p>Podés consultar la cobertura y las modalidades disponibles para tu ubicación directamente en la app.</p></Faq>
+        <Faq question="¿Cómo sigo mi reserva?"><p>Ves el estado de tu reserva en la app y recibís notificaciones a medida que avanza el servicio.</p></Faq>
+      </div>
+    </section>
   </main>
+  <Footer links={[
+    { href: "/lavaderos", label: "Lavaderos" },
+    { href: "/ayuda", label: "Ayuda" },
+    { href: "/privacidad", label: "Privacidad" },
+    { href: "/terminos", label: "Términos" },
+    { href: "/eliminar-cuenta", label: "Eliminar cuenta" },
+  ]} />
 </Base>

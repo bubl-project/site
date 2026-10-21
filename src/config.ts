@@ -2,9 +2,9 @@ export const site = {
   name: "Bubl",
   domain: "app.debubl.com",
   url: "https://app.debubl.com",
-  tagline: "Agendá y mandá a lavar tu auto desde tu celular.",
+  tagline: "Tu auto limpio. Tu tiempo, para vos.",
   description:
-    "Descarga Bubl para iOS o Android y empieza en segundos.",
+    "Agendá el lavado de tu auto desde el celular. Elegí Pickup, lavadero o servicio a domicilio según tu zona. Descargá Bubl para iOS y Android.",
   locale: "es",
 };
 
