@@ -1,0 +1,40 @@
+---
+import Icon from "./Icon.astro";
+const steps = [
+  { number: "01", icon: "car" as const, title: "Elegí el servicio.", text: "Contanos qué auto tenés y encontrá el cuidado que necesita." },
+  { number: "02", icon: "calendar" as const, title: "Hacelo a tu tiempo.", text: "Elegí la modalidad, el día y la hora. Revisá el precio antes de confirmar." },
+  { number: "03", icon: "card" as const, title: "Pagá desde la app.", text: "Elegí entre los medios de pago disponibles para tu reserva y pagá con Pagopar.", payment: true },
+  { number: "04", icon: "sparkle" as const, title: "Seguí con tu día.", text: "Consultá el estado desde la app. Te avisamos cuando todo esté listo." },
+];
+---
+<section class="how-section section-space" id="como-funciona" aria-labelledby="how-title">
+  <div class="shell">
+    <div class="section-heading"><div><p class="eyebrow">ASÍ FUNCIONA</p><h2 id="how-title">Menos vueltas.<br /><span class="text-muted">Más tiempo.</span></h2></div><p>El cuidado de tu auto, resuelto<br class="desktop-break" /> en unos pocos toques.</p></div>
+    <ol class="steps-grid how-steps">
+      {steps.map((step) => (
+        <li class="step">
+          <div class="step-top">
+            <span class="step-icon"><Icon name={step.icon} /></span>
+            <span class="step-number" aria-hidden="true">{step.number}</span>
+          </div>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+          {step.payment && (
+            <div class="payment-provider">
+              {/* Official asset: https://upay.com.py/wp-content/uploads/sites/4/2026/08/LogosPagoparNew.svg */}
+              <img src="/brand/pagopar.svg" alt="Pagopar" width="114" height="28" loading="lazy" decoding="async" />
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .how-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+  .payment-provider { display: flex; align-items: center; width: fit-content; margin-top: 18px; padding: 12px 16px; border-radius: 10px; background: var(--ink); }
+  .payment-provider img { width: 114px; height: 28px; }
+  @media (max-width: 1100px) { .how-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .how-steps { grid-template-columns: 1fr; gap: 28px; } }
+</style>

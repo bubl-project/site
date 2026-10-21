@@ -1,0 +1,48 @@
+<div class="foam-trail" data-foam-layer aria-hidden="true"></div>
+
+<script>
+  import "../scripts/foam";
+</script>
+
+<style>
+  .foam-trail {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: none;
+    overflow: hidden;
+    pointer-events: none;
+    -webkit-mask-image: var(--foam-mask);
+    mask-image: var(--foam-mask);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .foam-trail[data-ready="true"] { display: block; }
+  .foam-trail :global(.foam-puff) {
+    position: absolute;
+    width: var(--foam-size);
+    height: var(--foam-size);
+    border-radius: 48% 52% 46% 54%;
+    background: radial-gradient(circle at 32% 25%, #fff 0 18%, #f1fffff5 45%, #d7f3f2e6 72%, #a8deda99 100%);
+    box-shadow: inset 2px 2px 3px #fff, inset -1px -2px 3px #a3ccc970, 0 1px 2px #150c621a;
+    animation: foam-dissolve var(--foam-life) ease-out both;
+  }
+  .foam-trail :global(.foam-puff::before), .foam-trail :global(.foam-puff::after) {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, #fff 0 24%, #f3fffff2 48%, #bfebe5d9 100%);
+    box-shadow: inset 1px 1px 2px #fff, 0 1px 2px #150c6215;
+  }
+  .foam-trail :global(.foam-puff::before) { width: 65%; height: 65%; top: -18%; left: -20%; }
+  .foam-trail :global(.foam-puff::after) { width: 48%; height: 48%; right: -16%; bottom: -8%; }
+  @keyframes foam-dissolve {
+    0% { opacity: 0; transform: translate3d(-50%, -50%, 0) scale(.4); }
+    2% { opacity: .95; transform: translate3d(-50%, -50%, 0) scale(1); }
+    83.333% { opacity: .85; transform: translate3d(-50%, -50%, 0) scale(1.1); }
+    100% { opacity: 0; transform: translate3d(calc(-50% + var(--foam-drift)), calc(-50% - 14px), 0) scale(1.3); }
+  }
+  @media (prefers-reduced-motion: reduce) { .foam-trail { display: none !important; } }
+</style>

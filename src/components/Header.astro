@@ -1,0 +1,16 @@
+---
+import Icon from "./Icon.astro";
+interface Props { runner?: boolean; }
+const { runner = false } = Astro.props;
+---
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/" aria-label="Bubl — inicio"><img src="/brand/wordmark.webp" alt="Bubl" width="100" height="58" /></a>
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a class="nav-how" href={runner ? "#funcionalidades" : "#como-funciona"}>{runner ? "Funcionalidades" : "Cómo funciona"}</a>
+      <a href={runner ? "/" : "/lavaderos"}>{runner ? "Para tu auto" : "Para lavaderos"}</a>
+      <a class="nav-help" href="/ayuda">Ayuda</a>
+    </nav>
+    <a class="button button-small button-dark" href="#descargar">Descargá Bubl <Icon name="arrow" /></a>
+  </div>
+</header>

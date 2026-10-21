@@ -1,0 +1,23 @@
+---
+interface Props {
+  name: "arrow" | "check" | "sparkle" | "calendar" | "pin" | "car" | "clock" | "card" | "home" | "users" | "gift" | "tag" | "sliders";
+  class?: string;
+}
+const { name, class: className } = Astro.props;
+const paths = {
+  arrow: "M5 12h14M13 6l6 6-6 6",
+  check: "m5 12 4 4L19 6",
+  sparkle: "m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z",
+  calendar: "M8 2v4m8-4v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2ZM8 14h2m4 0h2m-8 3h2",
+  pin: "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0ZM15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+  car: "m5 7 2-4h10l2 4m-16 4 2-4h14l2 4v7H3v-7Zm0 7v3m18-3v3M6 12h2m8 0h2",
+  clock: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM12 7v5l3 2",
+  card: "M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM2 10h20M6 15h4",
+  home: "m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8",
+  users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm4-3a4 4 0 0 1 0 8m5 9v-2a4 4 0 0 0-3-3.87",
+  gift: "M3 8h18v4H3V8Zm2 4v9h14v-9M12 8v13M12 8H7.5A2.5 2.5 0 1 1 10 5.5L12 8Zm0 0h4.5A2.5 2.5 0 1 0 14 5.5L12 8Z",
+  tag: "M3 3h8l10 10-8 8L3 11V3Zm5 4h.01",
+  sliders: "M4 5h9m4 0h3M4 12h3m4 0h9M4 19h9m4 0h3M13 2v6M7 9v6m6 1v6",
+};
+---
+<svg class={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>

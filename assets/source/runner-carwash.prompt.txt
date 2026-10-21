@@ -1,0 +1,11 @@
+Generation mode: built-in image_gen, transparent_background=true.
+
+Use case: stylized-concept.
+Asset type: a single transparent-background 3D illustration asset for the Bubl car-wash business website.
+Primary request: a welcoming contemporary CAR WASH BUILDING, to be positioned ABOVE and slightly BEHIND an existing separate illustration of a worker washing a white SUV. Generate ONLY the building, not a full scene and not the car or worker.
+Subject: one compact premium car wash pavilion with one wide open washing bay, softly rounded architectural edges, a clean low flat canopy, a small glazed side room, a neatly mounted pressure washer hose and restrained wash-bay details that clearly identify it as a car wash. A short low foundation platform only. Blank facade, no signage typography.
+Composition: centered complete standalone building, wide low silhouette about 1.6:1, three-quarter front view with front opening dominant and a little right wall visible; gently elevated camera, similar to a polished mobile-app 3D object. Keep the building entirely inside the frame, generous transparent margin, no cropping. Unoccupied open bay, so it layers naturally behind an existing foreground car. Avoid objects extending far in front.
+Style: high-quality friendly stylized 3D render, believable refined proportions, smooth glossy molded surfaces, softly beveled edges, subtle ambient occlusion, soft studio lighting from upper left. Match the feel of Bubl's existing glossy 3D white SUV illustration with turquoise cleaning products and bright lime apron. Not flat vector art, not outlined cartoon, not photographic architecture.
+Palette: deep brand violet #150C62 for canopy/facade trim, luminous off-white walls, restrained turquoise glass and hose, SMALL lime #A8FB66 accents only. Violet is dominant among colored surfaces; no large neon green planes.
+Backdrop: real transparent alpha, including around platform edges. Only a tight soft contact shadow; no background color, no floor plane beyond the building's tiny platform, no sky, no scenery, no city.
+Constraints: no people, no vehicles, no text, no numbers, no invented logos, no watermarks. Do not render the Bubl logo. Keep the architecture simple and readable at 240–360 pixels wide. One isolated asset, not a sheet or mockup.

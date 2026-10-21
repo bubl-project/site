@@ -1,76 +1,257 @@
 ---
 import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
 import StoreButtons from "../components/StoreButtons.astro";
 import Footer from "../components/Footer.astro";
+import Icon from "../components/Icon.astro";
+import WaterDrops from "../components/WaterDrops.astro";
+import FoamTrail from "../components/FoamTrail.astro";
 import { apps } from "../config";
 
 const app = apps.runner;
-const tagline = "Gestioná tu lavadero desde tu celular.";
-const description =
-  "Descargá Bubl para lavaderos en iOS o Android y recibí pedidos, organizá tu agenda y administrá tu equipo desde un solo lugar.";
+const tagline = "Tu lavadero, con todo en orden.";
+const description = "Bubl para lavaderos pequeños y grandes: agenda, equipo, cobertura, servicio a domicilio, punch cards, promociones, precios dinámicos y el estado de los servicios en la TV de tu local.";
+const features = [
+  { icon: "calendar" as const, title: "Horarios y agenda", text: "Definí los días y las franjas de atención, organizá tu disponibilidad y consultá los pedidos de cada jornada." },
+  { icon: "pin" as const, title: "Tu zona de cobertura", text: "Marcá en el mapa las zonas donde te encuentran tus clientes y configurá dónde ofrecés tus servicios." },
+  { icon: "home" as const, title: "También a domicilio", text: "Elegí cómo ofrecer cada servicio: en tu local, a domicilio o con Pickup, retirando y devolviendo el vehículo." },
+  { icon: "users" as const, title: "Equipo y pedidos", text: "Administrá a tu equipo y seguí el estado de cada servicio, desde que entra el pedido hasta que el auto está listo." },
+];
 ---
-
 <Base app="runner" title={`${app.name} — ${tagline}`} description={description}>
-  <main>
-    <section class="relative overflow-hidden">
-      <div
-        class="absolute inset-0 -z-10 bg-gradient-to-b from-background via-white to-white"
-      >
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <WaterDrops />
+  <Header runner />
+  <main id="contenido" class="marketing-main">
+    <section class="runner-hero shell" aria-labelledby="runner-title">
+      <div>
+        <p class="eyebrow"><span class="status-dot"></span> BUBL PARA LAVADEROS</p>
+        <h1 id="runner-title">Tu lavadero,<br />con todo<br /><span class="hero-highlight">en orden.<svg viewBox="0 0 360 18" aria-hidden="true"><path d="M4 11C100 1 235 1 354 8" /></svg></span></h1>
+        <p class="runner-description">Organizá los pedidos, coordiná a tu equipo y creá motivos para que tus clientes vuelvan. Para lavaderos pequeños y grandes, en el local o a domicilio.</p>
+        <StoreButtons app="runner" />
+        <a href="/" class="text-link">¿Querés lavar tu auto? Conocé Bubl <span aria-hidden="true">↗</span></a>
       </div>
+      <div class="runner-art">
+        <img class="runner-building" src="/art/runner-carwash-960.webp" srcset="/art/runner-carwash-640.webp 640w, /art/runner-carwash-960.webp 960w" sizes="(max-width: 600px) 112vw, (max-width: 1100px) 60vw, 732px" alt="" width="960" height="601" decoding="async" />
+        <div class="runner-car" data-foam-surface><img src="/art/car-detail-640.webp" alt="Un prestador lava una camioneta en el área de lavado" width="640" height="376" fetchpriority="high" /><FoamTrail /></div>
+        <div class="scene-sticker" aria-hidden="true"><Icon name="sparkle" /><span>Tu trabajo,<br /><strong>más simple.</strong></span></div>
+      </div>
+    </section>
+    <section class="runner-operations section-space shell" id="funcionalidades" aria-labelledby="operations-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">EL DÍA A DÍA, ORGANIZADO</p><h2 id="operations-title">Tu negocio tiene<br />su propia forma de trabajar.</h2></div>
+        <p>Configurá Bubl según tus servicios,<br class="desktop-break" /> tus horarios y tu equipo.</p>
+      </div>
+      <div class="operations-grid">
+        {features.map((feature) => <article class="operation-card"><span class="step-icon"><Icon name={feature.icon} /></span><h3>{feature.title}</h3><p>{feature.text}</p></article>)}
+      </div>
+    </section>
 
-      <div class="mx-auto max-w-6xl px-6 py-16 sm:py-24 lg:py-32">
-        <div class="mx-auto max-w-2xl text-center">
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-secondary mb-6"
-          >
-            <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-            App para lavaderos y prestadores
-          </div>
-
-          <h1
-            class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-black"
-          >
-            <span
-              class="inline-flex items-center justify-center bg-thirdly overflow-hidden shadow-lg ring-1 ring-black/5 mx-auto h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
-              style="border-radius: 22.37%"
-            >
-              <img
-                src="/brand/icon-runner.png"
-                alt={app.name}
-                class="h-full w-full object-contain"
-                width="112"
-                height="112"
-              />
-            </span>
-            <span class="block text-secondary mt-4 text-3xl sm:text-4xl lg:text-5xl">
-              {tagline}
-            </span>
-          </h1>
-
-          <p class="mt-6 text-lg text-label">
-            {description}
-          </p>
-
-          <div class="mt-10 flex justify-center">
-            <StoreButtons app="runner" />
-          </div>
-
-          <p class="mt-8 text-sm text-label">
-            ¿Querés lavar tu auto?
-            <a href="/" class="text-secondary underline hover:text-thirdly">
-              Descargá la app para clientes
-            </a>
-          </p>
+    <section class="runner-commercial section-space" aria-labelledby="commercial-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div><p class="eyebrow">HERRAMIENTAS PARA VENDER Y FIDELIZAR</p><h2 id="commercial-title">Más razones<br />para volver a tu lavadero.</h2></div>
+          <p>Vos elegís los beneficios.<br />Bubl te ayuda a organizarlos.</p>
+        </div>
+        <div class="commercial-grid">
+          <article class="loyalty-card">
+            <span class="feature-label"><Icon name="gift" /> FIDELIZACIÓN</span>
+            <h3>Creá tus punch cards.</h3>
+            <p>Tarjetas de sellos digitales para premiar a quienes vuelven. Elegí qué servicios suman sellos, cuántos completan la tarjeta y qué recompensa recibe tu cliente.</p>
+            <div class="stamp-preview" aria-hidden="true">
+              <div class="stamp-preview-heading"><span>Cada visita cuenta.</span><Icon name="gift" /></div>
+              <div class="stamps">{Array.from({ length: 5 }, (_, i) => <span class:list={["stamp", { "stamp-complete": i < 3 }]}>{i < 3 ? <Icon name="check" /> : <span class="stamp-dot"></span>}</span>)}<span class="stamp stamp-reward"><Icon name="gift" /></span></div>
+              <span class="stamp-caption">Tu lavadero. Tus recompensas.</span>
+            </div>
+            <p class="feature-detail">Definí la vigencia y ofrecé una recompensa de monto fijo o porcentaje. Vos decidís las condiciones de tu tarjeta.</p>
+          </article>
+          <article class="commercial-card">
+            <span class="step-icon"><Icon name="tag" /></span>
+            <div><h3>Promociones a tu medida</h3><p>Creá promociones para tus servicios y dales a tus clientes un motivo más para elegir tu lavadero.</p></div>
+          </article>
+          <article class="commercial-card pricing-card">
+            <span class="step-icon"><Icon name="sliders" /></span>
+            <div><h3>Precios dinámicos, con tus reglas</h3><p>Ajustá los precios por día de la semana, modalidad de servicio o distancia de Pickup. Aplicá aumentos o descuentos de monto fijo o porcentaje.</p><ul class="pricing-tags" aria-label="Criterios de precios"><li>Día</li><li>Modalidad</li><li>Distancia de Pickup</li></ul></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <Footer
-      links={[
-        { href: "/runner/privacidad", label: "Privacidad" },
-        { href: "/runner/terminos", label: "Términos" },
-        { href: "/runner/eliminar-cuenta", label: "Eliminar cuenta" },
-      ]}
-    />
+    <section class="runner-display section-space" id="pantallas" aria-labelledby="display-title">
+      <div class="shell">
+        <div class="display-grid">
+          <div class="display-copy">
+            <p class="eyebrow">PANTALLAS DEL LOCAL</p>
+            <h2 id="display-title">Tu lavadero,<br />también en pantalla.</h2>
+            <p>Mostrá en la TV del local qué autos están en cola, en curso y listos. El tablero se actualiza con los cambios que hacés desde la app, para mantener al tanto a tu equipo y a tus clientes.</p>
+            <ul class="display-statuses" aria-label="Estados de los servicios"><li>En cola</li><li>En curso</li><li>Listos</li></ul>
+          </div>
+          <div class="display-art" role="img" aria-label="Ilustración de la TV del local vinculada a Bubl desde un celular">
+            <svg class="display-connection" viewBox="0 0 500 380" fill="none" aria-hidden="true"><path d="M180 115C280 0 445 30 430 195" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 11" /></svg>
+            <img class="display-tv" src="/art/runner-display-tv.webp" alt="" width="393" height="296" loading="lazy" decoding="async" />
+            <img class="display-phone" src="/art/runner-display-phone.webp" alt="" width="140" height="264" loading="lazy" decoding="async" />
+            <img class="display-link" src="/art/runner-display-link.webp" alt="" width="92" height="93" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <ol class="display-steps" aria-label="Cómo vincular la pantalla">
+          <li><span class="display-step-number" aria-hidden="true">01</span><div><h3>Abrí el tablero en la TV</h3><p>En el navegador de la TV, ingresá la dirección que Bubl te muestra en «Vincular pantalla».</p></div></li>
+          <li><span class="display-step-number" aria-hidden="true">02</span><div><h3>Escaneá el código QR</h3><p>Desde tu celular, abrí la vinculación en Bubl.</p></div></li>
+          <li><span class="display-step-number" aria-hidden="true">03</span><div><h3>Tocá «Vincular» y listo</h3><p>Tu equipo gestiona en la app. La TV muestra el estado.</p></div></li>
+        </ol>
+        <p class="display-setup-note">En la app: Mi cuenta → Dispositivos → Pantallas del local → Vincular pantalla.</p>
+      </div>
+    </section>
+
+    <section class="runner-business section-space shell" aria-labelledby="business-title">
+      <div class="section-heading"><div><p class="eyebrow">PARA PEQUEÑAS Y GRANDES EMPRESAS</p><h2 id="business-title">Una app para<br />tu forma de crecer.</h2></div></div>
+      <div class="business-grid">
+        <article><span class="business-label">SI TRABAJÁS SOLO O CON UN EQUIPO PEQUEÑO</span><h3>Todo a mano, desde el celular.</h3><p>Organizá tus horarios, recibí pedidos y ofrecé servicios en tu local o a domicilio. Sumá promociones y tarjetas de sellos para que tus clientes tengan motivos para volver.</p></article>
+        <article><span class="business-label">SI TENÉS UNA EMPRESA CON UN EQUIPO GRANDE</span><h3>Más coordinación en cada servicio.</h3><p>Administrá a tu equipo, configurá precios y cobertura, y acompañá los pedidos del día. Compartí el estado de los servicios en las pantallas del local para que todos estén al tanto.</p></article>
+      </div>
+      <div class="runner-download" id="descargar">
+        <div class="runner-download-heading"><div class="runner-app-icon"><img src="/brand/icon-runner.png" alt="" width="80" height="80" loading="lazy" /></div><div><h3>Empezá con Bubl para lavaderos.</h3><p>Descargá la app y configurá tu negocio.</p></div></div>
+        <StoreButtons app="runner" />
+      </div>
+    </section>
   </main>
+  <Footer links={[
+    { href: "/", label: "Para tu auto" },
+    { href: "/runner/privacidad", label: "Privacidad" },
+    { href: "/runner/terminos", label: "Términos" },
+    { href: "/runner/eliminar-cuenta", label: "Eliminar cuenta" },
+  ]} />
 </Base>
+
+<style>
+  .runner-hero h1 span { color: var(--ink); }
+  .runner-hero .hero-highlight { isolation: isolate; }
+  .runner-art { background: transparent; isolation: isolate; min-width: 0; }
+  .runner-art .runner-building { position: absolute; z-index: 1; width: 125%; height: auto; top: 10%; left: -15%; }
+  .runner-art .runner-car { position: absolute; z-index: 2; width: 75%; height: auto; left: -1%; bottom: 20%; }
+  .runner-car > img { display: block; width: 100%; height: auto; }
+  .runner-art .scene-sticker { top: 12%; right: -2%; }
+  .runner-operations { padding-top: 20px; }
+  .section-heading > p { flex-shrink: 0; }
+  .operations-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+  .operation-card { border-top: 1px solid var(--line); padding-top: 25px; }
+  .operation-card h3 { margin-top: 24px; font-size: 21px; font-weight: 600; letter-spacing: -.035em; }
+  .operation-card > p, .commercial-grid p, .business-grid p { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+  .runner-commercial { background: rgb(21 12 98 / .035); }
+  .commercial-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
+  .commercial-grid h3 { font-size: 26px; font-weight: 600; letter-spacing: -.04em; line-height: 1.15; }
+  .loyalty-card { grid-row: span 2; padding: 38px; border-radius: 24px; background: var(--ink); color: white; }
+  .feature-label { display: flex; align-items: center; gap: 10px; color: var(--lime); font-size: 10px; font-weight: 600; letter-spacing: .12em; margin-bottom: 24px; }
+  .feature-label svg { width: 20px; height: 20px; }
+  .loyalty-card > p { color: #e0d6f3; }
+  .stamp-preview { margin-block: 28px; padding: 24px; border: 1px solid #ffffff30; border-radius: 18px; background: #ffffff0c; transform: rotate(-2deg); }
+  .stamp-preview-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 16px; font-weight: 600; }
+  .stamp-preview-heading > svg { color: var(--lime); width: 20px; height: 20px; }
+  .stamps { display: flex; gap: 10px; margin-block: 24px 18px; }
+  .stamp { width: 100%; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; border: 1px dashed #ffffff50; }
+  .stamp-complete { background: rgb(168 251 102 / .18); color: var(--lime); border: 1px solid #a8fb6640; }
+  .stamp-dot { width: 5px; height: 5px; border-radius: 50%; background: #ffffff60; }
+  .stamp-reward { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+  .stamp-caption { color: #e0d6f3; font-size: 10px; letter-spacing: .04em; }
+  .commercial-grid .feature-detail { margin-top: 0; font-size: 12px; }
+  .commercial-card { display: flex; align-items: start; gap: 22px; padding: 32px; border: 1px solid #150c6212; border-radius: 24px; background: var(--paper); }
+  .commercial-card .step-icon { flex-shrink: 0; }
+  .commercial-card h3 { font-size: 23px; }
+  .pricing-card { background: rgb(168 251 102 / .12); }
+  .pricing-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .pricing-tags li { padding: 6px 10px; border-radius: 100px; border: 1px solid #150c6225; font-size: 10px; }
+  .runner-display { background: var(--ink); color: white; }
+  .display-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .display-copy .eyebrow { color: var(--lime); }
+  .display-copy h2 { font-size: clamp(36px, 4vw, 53px); line-height: 1.08; letter-spacing: -.055em; font-weight: 600; }
+  .display-copy > p:not(.eyebrow) { max-width: 470px; margin-top: 24px; color: #e0d6f3; font-size: 15px; line-height: 1.8; }
+  .display-statuses { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .display-statuses li { display: flex; align-items: center; gap: 7px; padding: 7px 12px; border: 1px solid #ffffff30; border-radius: 100px; font-size: 11px; }
+  .display-statuses li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #b1a6ee; }
+  .display-statuses li:last-child { background: #a8fb6619; color: var(--lime); border-color: #a8fb6635; }
+  .display-statuses li:last-child::before { background: var(--lime); }
+  .display-art { position: relative; aspect-ratio: 1.32; width: 100%; max-width: 540px; margin-inline: auto; }
+  .display-art > img { position: absolute; height: auto; }
+  .display-tv { width: 85%; top: 12%; left: 0; }
+  .display-phone { width: 27%; right: 0; bottom: 0; transform: rotate(5deg); }
+  .display-link { width: 18%; top: 3%; right: 4%; transform: rotate(10deg); }
+  .display-connection { position: absolute; inset: 0; width: 100%; height: 100%; color: #a8fb6660; }
+  .display-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; border-top: 1px solid #ffffff25; margin-top: 52px; padding-top: 32px; }
+  .display-steps li { display: flex; gap: 16px; }
+  .display-step-number { color: var(--lime); font-size: 12px; padding-top: 3px; }
+  .display-steps h3 { font-size: 16px; font-weight: 600; letter-spacing: -.02em; }
+  .display-steps p { margin-top: 8px; color: #e0d6f3; font-size: 12px; line-height: 1.7; }
+  .display-setup-note { margin-top: 28px; color: #e0d6f3; font-size: 11px; line-height: 1.8; }
+  .business-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .business-grid article { border-top: 1px solid var(--line); padding-top: 24px; }
+  .business-label { display: block; font-size: 10px; line-height: 1.6; letter-spacing: .08em; font-weight: 600; }
+  .business-grid h3 { margin-top: 18px; font-size: 25px; letter-spacing: -.04em; line-height: 1.2; font-weight: 600; }
+  .business-grid p { max-width: 490px; }
+  .runner-download { display: flex; justify-content: space-between; align-items: center; gap: 32px; margin-top: 64px; padding: 32px; border-radius: 22px; background: rgb(21 12 98 / .05); }
+  .runner-download-heading { display: flex; align-items: center; gap: 20px; }
+  .runner-app-icon { flex-shrink: 0; width: 72px; height: 72px; border-radius: 19px; background: var(--ink); transform: rotate(-5deg); }
+  .runner-app-icon img { width: 100%; height: auto; }
+  .runner-download h3 { font-size: 21px; letter-spacing: -.03em; font-weight: 600; line-height: 1.2; }
+  .runner-download p { margin-top: 8px; font-size: 13px; line-height: 1.6; color: var(--muted); }
+  .runner-download :global(.store-buttons) { flex-shrink: 0; }
+  @media (max-width: 1100px) {
+    .operations-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
+    .loyalty-card, .commercial-card { padding: 28px; }
+    .commercial-card { gap: 16px; }
+    .commercial-card .step-icon { width: 36px; height: 36px; border-radius: 11px; }
+    .commercial-card .step-icon svg { width: 20px; height: 20px; }
+    .display-grid { gap: 35px; }
+    .runner-download { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 850px) {
+    .section-heading { display: block; }
+    .section-heading > p { margin-top: 20px; }
+    .commercial-grid { grid-template-columns: 1fr; }
+    .loyalty-card { grid-row: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; }
+    .loyalty-card .feature-label, .loyalty-card h3, .loyalty-card > p { grid-column: 1; }
+    .loyalty-card .stamp-preview { grid-column: 2; grid-row: 1 / 5; align-self: center; padding: 20px; margin: 0; }
+    .commercial-grid .feature-detail { margin-top: 16px; }
+    .stamps { gap: 6px; }
+    .stamp svg { width: 19px; height: 19px; }
+    .display-grid { grid-template-columns: 1fr; gap: 32px; }
+    .display-copy > p:not(.eyebrow) { max-width: 530px; }
+    .display-copy h2 { font-size: 43px; }
+    .display-art { max-width: 480px; }
+    .display-steps { gap: 22px; }
+    .business-grid { gap: 32px; }
+  }
+  @media (max-width: 600px) {
+    .runner-operations { padding-top: 15px; }
+    .operations-grid { grid-template-columns: 1fr; gap: 28px; }
+    .operation-card { display: grid; grid-template-columns: 46px 1fr; column-gap: 18px; padding-top: 24px; }
+    .operation-card .step-icon { grid-row: span 2; }
+    .operation-card h3 { margin-top: 0; }
+    .operation-card > p { margin-top: 9px; font-size: 13px; }
+    .loyalty-card { display: block; padding: 26px; }
+    .loyalty-card .stamp-preview { margin-block: 26px; }
+    .loyalty-card h3 { font-size: 27px; }
+    .commercial-card { padding: 26px; flex-direction: column; gap: 20px; }
+    .commercial-grid p { font-size: 13px; }
+    .commercial-grid .feature-detail { font-size: 12px; }
+    .display-copy h2 { font-size: 39px; }
+    .display-copy > p:not(.eyebrow) { font-size: 14px; }
+    .display-art { width: 94%; }
+    .display-steps { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; margin-top: 36px; }
+    .display-steps li { gap: 18px; }
+    .business-grid { grid-template-columns: 1fr; gap: 30px; }
+    .business-grid h3 { font-size: 24px; }
+    .business-grid p { font-size: 13px; }
+    .runner-download { margin-top: 40px; padding: 26px; gap: 26px; }
+    .runner-download-heading { gap: 16px; align-items: flex-start; }
+    .runner-app-icon { width: 54px; height: 54px; border-radius: 14px; }
+    .runner-download h3 { font-size: 20px; }
+    .runner-download p { font-size: 12px; }
+    .runner-download :global(.store-btn img) { height: 37px; }
+  }
+  @media (max-width: 360px) {
+    .stamp-preview { padding: 16px; }
+    .stamps { gap: 5px; }
+    .stamp svg { width: 17px; height: 17px; }
+    .runner-download { padding: 22px; }
+    .runner-download :global(.store-btn img) { height: 32px; }
+  }
+</style>

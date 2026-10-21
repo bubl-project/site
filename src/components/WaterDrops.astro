@@ -1,0 +1,68 @@
+---
+// Fixed, deterministic positions: CSS animates only transforms, with no render loop.
+const drops = [
+  { x: 4, size: 25, duration: 29, delay: -12, drift: 25 },
+  { x: 13, size: 13, duration: 24, delay: -3, drift: -18 },
+  { x: 22, size: 32, duration: 34, delay: -23, drift: 30 },
+  { x: 31, size: 17, duration: 27, delay: -15, drift: -20 },
+  { x: 40, size: 21, duration: 32, delay: -7, drift: 24 },
+  { x: 49, size: 12, duration: 25, delay: -20, drift: -16 },
+  { x: 58, size: 29, duration: 35, delay: -18, drift: 28 },
+  { x: 67, size: 15, duration: 26, delay: -5, drift: -22 },
+  { x: 76, size: 24, duration: 31, delay: -25, drift: 19 },
+  { x: 85, size: 14, duration: 28, delay: -14, drift: -15 },
+  { x: 93, size: 34, duration: 36, delay: -9, drift: 12 },
+  { x: 97, size: 18, duration: 30, delay: -22, drift: -24 },
+];
+---
+<div class="water-drops" data-water-drops data-paused="true" aria-hidden="true">
+  {drops.map((drop) => <span class="water-drop" style={`--drop-x:${drop.x}%;--drop-size:${drop.size}px;--drop-duration:${drop.duration}s;--drop-delay:${drop.delay}s;--drop-drift:${drop.drift}px;`} />)}
+</div>
+<button class="water-toggle" type="button" data-water-toggle data-active="false" hidden>
+  <svg width="16" height="18" viewBox="0 0 20 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 2S3 10 3 15a7 7 0 0 0 14 0c0-5-7-13-7-13Z"/><path d="M6 15a4 4 0 0 0 4 4" stroke-linecap="round"/></svg>
+  <span data-water-label>Pausar gotas</span>
+</button>
+<script>
+  const layer = document.querySelector<HTMLElement>("[data-water-drops]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-water-toggle]");
+  const label = toggle?.querySelector<HTMLElement>("[data-water-label]");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (layer && toggle && label) {
+    let enabled = true;
+    try { enabled = sessionStorage.getItem("bubl-water-drops") !== "paused"; } catch { /* Storage is optional. */ }
+    const sync = () => {
+      const active = enabled && !reduced.matches;
+      layer.dataset.paused = String(!active || document.hidden);
+      toggle.hidden = reduced.matches;
+      toggle.dataset.active = String(active);
+      label.textContent = active ? "Pausar gotas" : "Activar gotas";
+    };
+    toggle.addEventListener("click", () => {
+      enabled = !enabled;
+      try { sessionStorage.setItem("bubl-water-drops", enabled ? "active" : "paused"); } catch { /* Keep the toggle working in private mode. */ }
+      sync();
+    });
+    reduced.addEventListener("change", sync);
+    document.addEventListener("visibilitychange", sync);
+    sync();
+  }
+</script>
+<style>
+  .water-drops { position: fixed; inset: 0; z-index: 8; pointer-events: none; overflow: hidden; contain: strict; }
+  .water-drop { position: absolute; top: -70px; left: var(--drop-x); width: var(--drop-size); height: calc(var(--drop-size) * 1.35); border-radius: 55% 45% 48% 52% / 65% 60% 40% 35%; background: radial-gradient(ellipse at 28% 25%, #ffffffb5 0%, #ffffff3d 13%, #c9efef0c 42%, #73aeb12e 80%, #ffffff70 100%); border: 1px solid #ffffff5e; box-shadow: inset 1px 2px 3px #ffffffe0, inset -1px -2px 3px #588d9842, 1px 3px 5px #214b5c0a; animation: water-slide var(--drop-duration) var(--drop-delay) linear infinite; }
+  .water-drops[data-paused="true"] .water-drop { animation-play-state: paused; }
+  .water-toggle { position: fixed; z-index: 9; right: 18px; bottom: 18px; min-height: 44px; display: inline-flex; align-items: center; gap: 7px; padding: 10px 14px; border: 1px solid #a8fb6690; border-radius: 100px; background: #edffdfef; color: #150c62; box-shadow: 0 3px 15px #173f4c0a; font: 500 11px Arial, sans-serif; cursor: pointer; }
+  .water-toggle[hidden] { display: none; }
+  .water-toggle:hover { background: #ddffc5; }
+  .water-toggle[data-active="false"] { opacity: .8; }
+  @keyframes water-slide {
+    from { transform: translate3d(0, -30px, 0) rotate(-12deg); }
+    to { transform: translate3d(var(--drop-drift), calc(100vh + 150px), 0) rotate(12deg); }
+  }
+  @media (max-width: 600px) {
+    .water-drop:nth-child(even) { display: none; }
+    .water-drop { width: calc(var(--drop-size) * .8); height: calc(var(--drop-size) * 1.08); }
+    .water-toggle { bottom: 12px; right: 12px; font-size: 10px; padding-inline: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .water-drops, .water-toggle { display: none; } }
+</style>

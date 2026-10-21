@@ -1,26 +1,12 @@
 ---
 import { site } from "../config";
-
-interface Props {
-  links: { href: string; label: string }[];
-}
-
+interface Props { links: { href: string; label: string }[]; }
 const { links } = Astro.props;
 ---
-
-<footer class="border-t border-border/60 mt-12">
-  <div
-    class="mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-label"
-  >
-    <p>© {new Date().getFullYear()} {site.name}</p>
-    <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-      {
-        links.map(({ href, label }) => (
-          <a href={href} class="hover:text-black">
-            {label}
-          </a>
-        ))
-      }
-    </nav>
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-brand"><a class="brand" href="/" aria-label="Bubl — inicio"><img src="/brand/wordmark-light.webp" alt="Bubl" width="85" height="49" loading="lazy" /></a></div>
+    <nav aria-label="Enlaces del pie de página">{links.map(({ href, label }) => <a href={href}>{label}</a>)}</nav>
   </div>
+  <div class="shell footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>Hecho para que sigas con tu día.</span></div>
 </footer>

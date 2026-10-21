@@ -1,60 +1,26 @@
 ---
 import StoreButtons from "./StoreButtons.astro";
-import { site } from "../config";
+import Icon from "./Icon.astro";
+import FoamTrail from "./FoamTrail.astro";
 ---
-
-<section class="relative overflow-hidden">
-  <div
-    class="absolute inset-0 -z-10 bg-gradient-to-b from-background via-white to-white"
-  >
+<section class="hero shell" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="status-dot"></span> MENOS PENDIENTES. MÁS VIDA.</p>
+    <h1 id="hero-title">Tu auto limpio.<br />Tu tiempo,<br /><span class="hero-highlight">para vos.<svg viewBox="0 0 360 18" aria-hidden="true"><path d="M4 11C100 1 235 1 354 8" /></svg></span></h1>
+    <p class="hero-description">Agendá el lavado desde tu celular. Elegí el servicio y el horario que te queden cómodos, y seguí con tu día.</p>
+    <div class="hero-stores"><StoreButtons /></div>
+    <p class="hero-note"><Icon name="check" /> Descargá gratis. Elegí cuándo y cómo.</p>
   </div>
-
-  <div class="mx-auto max-w-6xl px-6 py-16 sm:py-24 lg:py-32">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div class="text-center lg:text-left">
-        <div
-          class="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-medium text-secondary mb-6"
-        >
-          <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-          Ya disponible en iOS y Android
-        </div>
-
-        <h1
-          class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-black"
-        >
-          <span
-            class="inline-flex items-center justify-center bg-thirdly overflow-hidden shadow-lg ring-1 ring-black/5 mx-auto lg:mx-0 h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
-            style="border-radius: 22.37%"
-          >
-            <img
-              src="/brand/icon.png"
-              alt={site.name}
-              class="h-full w-full object-contain"
-              width="112"
-              height="112"
-            />
-          </span>
-          <span class="block text-secondary mt-4 text-3xl sm:text-4xl lg:text-5xl">{site.tagline}</span>
-        </h1>
-
-        <p class="mt-6 text-lg text-label max-w-xl mx-auto lg:mx-0">
-          {site.description}
-        </p>
-
-        <div class="mt-10 flex justify-center lg:justify-start">
-          <StoreButtons />
-        </div>
-      </div>
-
-      <div class="flex justify-center lg:justify-end">
-        <img
-          src="/screenshots/app-show.png"
-          alt="Vista previa de la app Bubl"
-          class="w-[280px] sm:w-[320px] lg:w-[340px] h-auto drop-shadow-2xl"
-          width="340"
-          height="680"
-        />
-      </div>
-    </div>
+  <div class="hero-scene" data-depth-scene>
+    <div class="bubble bubble-one" aria-hidden="true"></div>
+    <div class="bubble bubble-two" aria-hidden="true"></div>
+    <div class="bubble bubble-three" aria-hidden="true"></div>
+    <div class="scene-car" data-foam-surface><img src="/art/car-wash-1100.webp" srcset="/art/car-wash-640.webp 640w, /art/car-wash-1100.webp 1100w" sizes="(max-width: 700px) 95vw, (max-width: 1000px) 70vw, 55vw" width="1100" height="709" alt="Un auto blanco recibe un lavado, ilustrado en el estilo 3D de Bubl" fetchpriority="high" decoding="async" /><FoamTrail /></div>
+    <div class="scene-notification" aria-hidden="true"><span class="notification-icon"><Icon name="check" /></span><span><strong>Tu auto, en buenas manos.</strong><small>Vos, en lo que te gusta.</small></span><span class="notification-dot"></span></div>
+    <span class="scene-caption" aria-hidden="true">UN POCO DE BUBL. MUCHO MÁS TIEMPO.</span>
   </div>
+  <div class="hero-bottom"><span>Limpio el auto. Libre tu agenda.</span><a href="#como-funciona">Así de simple <span aria-hidden="true">↓</span></a></div>
 </section>
+<script>
+  import "../scripts/scene";
+</script>
